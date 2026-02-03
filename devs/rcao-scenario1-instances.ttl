@@ -1,0 +1,86 @@
+@prefix : <http://www.example.org/rcao#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ago: <http://vcd.vicomtech.org/ontology/automotive#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rcao: <http://www.example.org/rcao#> .
+@prefix ex: <http://www.example.org/instances#> .
+
+# SCENARIO CONTEXT: 
+# Scenario 1 Variant (Decoupled Agents): 
+# ADS1 performs Perception and Action. 
+# RCA1 (a sub-component of ADS1) performs Comprehension.
+
+#################################################################
+#    AGENTS & HIERARCHY
+#################################################################
+
+ex:EgoVehicle1 rdf:type ago:Vehicle ;
+               ago:hasPart ex:ADS1 , ex:LIDAR1 .
+
+ex:ADS1 rdf:type rcao:Algorithm ;
+        rdfs:comment "Main Automated Driving System" ;
+        ago:isPartOf ex:EgoVehicle1 ;
+        ago:hasPart ex:RCA1 .
+
+ex:RCA1 rdf:type rcao:Algorithm ;
+        rdfs:comment "Resilient Collective Awareness Sub-module" ;
+        ago:isPartOf ex:ADS1 .
+
+#################################################################
+#    SENSORS & PHYSICAL OBJECTS
+#################################################################
+
+ex:LIDAR1 rdf:type rcao:InformationSource ;
+          ago:isPartOf ex:EgoVehicle1 .
+
+ex:Pedestrian1 rdf:type ago:Pedestrian .
+
+#################################################################
+#    RESILIENCE ATTRIBUTES
+#################################################################
+
+ex:LIDAR1_Visibility_Map rdf:type rcao:ResilienceAttribute .
+
+# Static resilience link
+ex:LIDAR1 rcao:hasResilience ex:LIDAR1_Visibility_Map .
+
+#################################################################
+#    PERCEPTION PHASE
+#################################################################
+
+ex:PerceptionProcess1 rdf:type prov:Activity ;
+                      prov:wasAssociatedWith ex:ADS1 ;
+                      prov:used ex:LIDAR1 .
+
+ex:PA1_ADS1_of_P1 rdf:type rcao:PerceptualAwareness ;
+                  rcao:hasSubject ex:ADS1 ;
+                  rcao:isAwarenessOf ex:Pedestrian1 ;
+                  rcao:derivedFrom ex:LIDAR1 ;
+                  rcao:hasConfidence "0.92"^^xsd:float ;
+                  prov:wasGeneratedBy ex:PerceptionProcess1 .
+
+#################################################################
+#    COMPREHENSION PHASE
+#################################################################
+
+ex:Risk_Collision_Pedestrian1 rdf:type rcao:Risk .
+
+ex:ComprehensionProcess1 rdf:type prov:Activity ;
+                         prov:wasAssociatedWith ex:RCA1 .
+
+ex:CA1_RCA1_of_RCP1 rdf:type rcao:ComprehensionAwareness ;
+                    rcao:hasSubject ex:RCA1 ;
+                    rcao:isAwarenessOf ex:Risk_Collision_Pedestrian1 ;
+                    rcao:derivedFrom ex:PA1_ADS1_of_P1 ;
+                    prov:wasGeneratedBy ex:ComprehensionProcess1 .
+
+#################################################################
+#    ACTION PHASE
+#################################################################
+
+ex:AdaptSpeed1 rdf:type ago:Action ;
+               prov:wasAssociatedWith ex:ADS1 ;
+               rcao:justifiedBy ex:CA1_RCA1_of_RCP1 .
