@@ -17,7 +17,7 @@ We automatically generate documentation for RCAO using OntoSpy, Pylode and Widoc
 
 * [OntoSpy](https://AIGGREGATE.gitlab.io/rca_datamodel/rcao/OntoSpy/index.html)
 * [Pylode](https://AIGGREGATE.gitlab.io/rca_datamodel/rcao/Pylode/index.html)
-* [Wizard](https://AIGGREGATE.gitlab.io/rca_datamodel/rcao/Widoco/index.html)
+* [Widoco](https://AIGGREGATE.gitlab.io/rca_datamodel/rcao/Widoco/index.html)
 
 ## Contributing
 
