@@ -248,6 +248,6 @@ AdaptSpeed1 rcao:justifiedBy CA1_ADS1_of_RCP1
 :AdaptSpeed1 rdf:type ago:Action ;
     rcao:runsProcess :ADS1 ;
     rcao:justifiedBy :CA1_ADS1_of_RCP1 .
-```ttl
+```
 
 
