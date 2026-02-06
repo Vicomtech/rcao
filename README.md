@@ -1,7 +1,9 @@
 # Resilience Collective Awarness Ontology (RCAO)
 
 RCAO offers a minimal set of classes and relations to guide the representation of knowledge in RDF/OWL.
-The ontoloy IRI is; [https://w3id.org/rcao/](https://w3id.org/rcao/)
+
+The ontoloy IRI is: [https://w3id.org/rcao/](https://w3id.org/rcao/)
+
 Here's the RCAO Postcard showing all the classes and relations (solid line indicates connection between domain/range; dotted line indicates restriction on use in class axiom)<br>
 <img src="RCAO-overview.png" alt="RCAO Postcard" width="800">
 
