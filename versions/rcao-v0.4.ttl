@@ -1,0 +1,289 @@
+@prefix : <http://www.example.org/rcao#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ago: <http://vcd.vicomtech.org/ontology/automotive#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rcao: <http://www.example.org/rcao#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix sdo: <http://schema.org/> .
+@base <http://www.example.org/rcao> .
+
+<http://www.example.org/rcao> rdf:type owl:Ontology ;
+                                dcterms:title "Resilient Collective Awareness Ontology" ;
+                                dcterms:description "Resilient Collective Awareness Ontology (RCAO) extension aligned with AGO and PROV-O." ;
+                                dcterms:creator <https://orcid.org/0000-0000-0000-0000> ;
+                                dcterms:created "2026-02-02"^^xsd:date ;
+                                dcterms:modified "2026-02-02"^^xsd:date ;
+                                dcterms:publisher <https://example.org/publisher> ;
+                                owl:versionInfo "1.0.0" ;
+                                rdfs:comment "Resilient Collective Awareness Ontology (RCAO) extension aligned with AGO and PROV-O." ;
+                                owl:imports <http://vcd.vicomtech.org/ontology/automotive#> ,
+                                            <http://www.w3.org/ns/prov-o#> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.example.org/rcao#hasAwarenessState
+rcao:hasAwarenessState rdf:type owl:ObjectProperty ;
+                       owl:inverseOf rcao:hasSubject ;
+                       rdfs:domain ago:Object ;
+                       rdfs:range rcao:AwarenessState ;
+                       rdfs:comment "Links a subject (an agent-like object) to a state of awareness it possesses." .
+
+###  http://www.example.org/rcao#hasSubject
+rcao:hasSubject rdf:type owl:ObjectProperty ;
+                rdfs:domain rcao:AwarenessState ;
+                rdfs:range ago:Object ;
+                rdfs:comment "Identifies the agent holding the awareness state." .
+
+###  http://www.example.org/rcao#isAwarenessOf
+rcao:isAwarenessOf rdf:type owl:ObjectProperty ;
+                   rdfs:domain rcao:AwarenessState ;
+                   rdfs:range owl:Thing ; 
+                   rdfs:comment "Links an awareness state to the entity (Object, Action, or Context) it is about." .
+
+###  http://www.example.org/rcao#derivedFrom
+rcao:derivedFrom rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf prov:wasDerivedFrom ;
+                 rdfs:domain rcao:AwarenessState ;
+                 rdfs:range [ rdf:type owl:Class ;
+                              owl:unionOf ( rcao:InformationSource rcao:AwarenessState )
+                            ] ;
+                 rdfs:comment "Links an awareness state to the source or previous state from which it was derived." .
+
+###  http://www.example.org/rcao#hasResilience
+rcao:hasResilience rdf:type owl:ObjectProperty ;
+                   rdfs:domain rcao:AwarenessState ;
+                   rdfs:range rcao:ResilienceAttribute ;
+                   rdfs:comment "Associates an awareness state with its quality and trust metrics." .
+
+###  http://www.example.org/rcao#justifiedBy
+rcao:justifiedBy rdf:type owl:ObjectProperty ;
+                 rdfs:domain ago:Action ;
+                 rdfs:range rcao:AwarenessState ;
+                 rdfs:comment "Indicates the AwarenessState that provided the reason for an Action." .
+
+###  http://www.example.org/rcao#informs
+rcao:informs rdf:type owl:ObjectProperty ;
+             rdfs:domain rcao:AwarenessState ;
+             rdfs:range rcao:AwarenessState ;
+             rdfs:comment "Models the flow of information from perception to comprehension." .
+
+#################################################################
+#    Data Properties
+#################################################################
+
+###  http://www.example.org/rcao#hasConfidence
+rcao:hasConfidence rdf:type owl:DatatypeProperty ;
+                   rdfs:domain rcao:AwarenessState ;
+                   rdfs:range xsd:float ;
+                   rdfs:comment "A confidence score (0.0 to 1.0) directly associated with the perception." .
+
+###  http://www.example.org/rcao#hasTrustScore
+rcao:hasTrustScore rdf:type owl:DatatypeProperty ;
+                   rdfs:domain rcao:ResilienceAttribute ;
+                   rdfs:range xsd:float ;
+                   rdfs:comment "A quantifiable trust score for an information source." .
+
+###  http://www.example.org/rcao#hasTimestamp
+rcao:hasTimestamp rdf:type owl:DatatypeProperty ;
+                  rdfs:domain rcao:AwarenessState ;
+                  rdfs:range xsd:dateTime ;
+                  rdfs:comment "The time at which the data was generated or observed." .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.example.org/rcao#AwarenessState
+rcao:AwarenessState rdf:type owl:Class ;
+                    rdfs:subClassOf owl:Thing ;
+                    rdfs:comment "A reification of the awareness relationship." .
+
+###  http://www.example.org/rcao#PerceptualAwareness
+rcao:PerceptualAwareness rdf:type owl:Class ;
+                         rdfs:subClassOf rcao:AwarenessState ;
+                         owl:disjointWith rcao:ComprehensionAwareness ;
+                         rdfs:comment "Level 1 SA: Direct perception of objects." .
+
+###  http://www.example.org/rcao#ComprehensionAwareness
+rcao:ComprehensionAwareness rdf:type owl:Class ;
+                            rdfs:subClassOf rcao:AwarenessState ;
+                            rdfs:comment "Level 2 SA: Understanding of significance/meaning." .
+
+###  http://www.example.org/rcao#ProjectionAwareness
+rcao:ProjectionAwareness rdf:type owl:Class ;
+                         rdfs:subClassOf rcao:AwarenessState ;
+                         rdfs:comment "Level 3 SA: Prediction of future states." .
+
+###  http://www.example.org/rcao#InformationSource
+rcao:InformationSource rdf:type owl:Class ;
+                       rdfs:subClassOf prov:Entity ;
+                       rdfs:comment "Hardware or software generating data (Sensors, V2X, Algorithms)." .
+
+###  http://www.example.org/rcao#ResilienceAttribute
+rcao:ResilienceAttribute rdf:type owl:Class ;
+                         rdfs:comment "Qualitative attributes describing robustness or trust." .
+
+###  http://www.example.org/rcao#AutomatedDrivingSystem
+rcao:AutomatedDrivingSystem rdf:type owl:Class ;
+                            rdfs:subClassOf ago:Object ,
+                                            prov:Agent ;
+                            rdfs:comment "Represents the ADS agent." .
+
+###  http://www.example.org/rcao#Risk
+rcao:Risk rdf:type owl:Class ;
+          rdfs:subClassOf ago:Context ;
+          rdfs:comment "A formalized assessment of potential danger (Context)." .
+#################################################################
+#    AMENDMENTS Scenario 1: Classes (Process & Resilience Hierarchy)
+#################################################################
+
+### Refinement of Algorithm to be a valid Subject in AGO context
+# Scenario 1 requires RCA_Algo to be a Subject.
+rcao:Algorithm rdf:type owl:Class ;
+    rdfs:subClassOf prov:Agent , ago:Object ;
+    rdfs:comment "Computational agents (Fusion, Path Planning) acting as subjects within the traffic ontology." .
+
+### PROV-O Process Hierarchies (Scenario 1: Perception/Comprehension)
+rcao:PerceptionProcess rdf:type owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    rdfs:comment "The activity of converting raw sensor data into PerceptualAwareness (Level 1 SA)." .
+
+rcao:ComprehensionProcess rdf:type owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    rdfs:comment "The activity of synthesizing PerceptualAwareness into ComprehensionAwareness (Level 2 SA)." .
+
+### DIN SAE SPEC 91518 Data Quality Hierarchy
+rcao:PositionalAccuracy rdf:type owl:Class ;
+    rdfs:subClassOf rcao:ResilienceAttribute ;
+    rdfs:comment "Quantifies uncertainty in location (e.g., Covariance Matrix)." .
+
+rcao:TemporalFreshness rdf:type owl:Class ;
+    rdfs:subClassOf rcao:ResilienceAttribute ;
+    rdfs:comment "Captures data age/latency to prevent usage of stale information." .
+
+rcao:Completeness rdf:type owl:Class ;
+    rdfs:subClassOf rcao:ResilienceAttribute ;
+    rdfs:comment "Measure of information completeness (e.g., Visibility/Occlusion Maps)." .
+
+#################################################################
+#    AMENDMENTS Scenario 1: Properties (Linking Agents, Sources & Quality)
+#################################################################
+
+### Property to link an Agent to the Process it executes (Scenario 1: "ADS1 runs PerceptionProcess1")
+rcao:runsProcess rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:wasAssociatedWith ;
+    rdfs:domain prov:Agent ;
+    rdfs:range prov:Activity ;
+    owl:inverseOf prov:wasAssociatedWith ; 
+    rdfs:comment "Links the ADS or Algorithm to the computational process it is executing." .
+
+### Property to link a Source directly to its static resilience (Scenario 1: "rcao:hasResilienceAttribute" LIDAR -> VisibilityMap)
+rcao:hasSourceResilience rdf:type owl:ObjectProperty ;
+    rdfs:domain rcao:InformationSource ;
+    rdfs:range rcao:ResilienceAttribute ;
+    rdfs:comment "Links a sensor/source to intrinsic quality attributes (e.g., occlusion map) independent of specific measurements." .
+
+### Extension of justifiedBy to include provenance (XAI)
+# Ensures that the Action is not just 'justified' but explicitly 'influenced' by the awareness.
+rcao:justifiedBy rdfs:subPropertyOf prov:wasInfluencedBy .
+
+#################################################################
+#    AMENDMENTS Scenario 2: Classes (V2X Message & infrastructure)
+#################################################################
+### http://www.example.org/rcao#RoadSideUnit
+# Corresponds to traffic:V2X_Unit in the source text.
+rcao:RoadSideUnit rdf:type owl:Class ;
+                  rdfs:subClassOf ago:Object , prov:Agent ;
+                  rdfs:comment "Intelligent infrastructure capable of perception and V2X communication (RSU)." .
+
+### http://www.example.org/rcao#V2XMessage
+# Corresponds to traffic:CPM_Message in the source text.
+rcao:V2XMessage rdf:type owl:Class ;
+                rdfs:subClassOf prov:Entity ;
+                rdfs:comment "A digital artifact transmitted between agents containing awareness states (e.g., ETSI CPM)." .
+
+### http://www.example.org/rcao#BroadcastActivity
+# Specific activity for the act of sending data.
+rcao:BroadcastActivity rdf:type owl:Class ;
+                       rdfs:subClassOf prov:Activity ;
+                       rdfs:comment "The process of encoding and transmitting awareness states via V2X." .
+
+#################################################################
+#    AMENDMENTS Scenario 2: Properties (Link Message to the content "AwarenessState")
+#################################################################
+
+### http://www.example.org/rcao#encapsulates
+# Corresponds to "rcao:contains" in the source text.
+rcao:encapsulates rdf:type owl:ObjectProperty ;
+                  rdfs:domain rcao:V2XMessage ;
+                  rdfs:range rcao:AwarenessState ;
+                  rdfs:comment "Links a V2X message to the AwarenessState(s) it carries." .
+
+#################################################################
+#    AMENDMENTS Scenario 3: Fusion & Virtual Sensing
+#################################################################
+
+### 1. Classes: Fusion Activity
+# Represents the specific act of combining multiple awareness states into one.
+rcao:FusionProcess rdf:type owl:Class ;
+                   rdfs:subClassOf prov:Activity ;
+                   rdfs:comment "A computational process that aggregates multiple AwarenessState instances into a single fused state." .
+
+### 2. Classes: Virtual Sensors (The Algorithm as Source)
+# Addresses the requirement in Source where Fusion_Algo is an InformationSource.
+# Defines a class of algorithms capable of generating primary data evidence.
+rcao:VirtualSensorAlgorithm rdf:type owl:Class ;
+                            rdfs:subClassOf rcao:Algorithm , rcao:InformationSource ;
+                            rdfs:comment "An algorithm that acts as a traceable source of information (Virtual Sensor), effectively bridging prov:Agent and prov:Entity." .
+
+### 3. Data Properties: Fusion Metadata
+# Addresses the requirement in Source for 'fusion_strategy'.
+rcao:hasFusionStrategy rdf:type owl:DatatypeProperty ;
+                       rdfs:domain rcao:AwarenessState ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "Describes the logic used to fuse data (e.g., 'agreement_consolidation', 'weighted_average')." .
+
+### 4. Object Properties: Explicit Fusion Inputs (Optional)
+# Refines 'prov:used' to be more specific for fusion contexts.
+rcao:fusesState rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf prov:used ;
+                rdfs:domain rcao:FusionProcess ;
+                rdfs:range rcao:AwarenessState ;
+                rdfs:comment "Explicitly identifies which awareness states were consumed during the fusion process." .
+
+
+#################################################################
+#    AMENDMENTS Scenario 4: Human Factors & Infrastructure
+#    Aligned with rcao-classes.csv
+#################################################################
+
+### 1. Human Agents (Aligned with CSV: HumanAgent -> Driver)
+# We map ago:Human to the CSV concept of HumanAgent.
+# Crucially, we make it a subclass of prov:Agent so it can 'run' processes.
+ago:Human rdf:type owl:Class ;
+          rdfs:subClassOf ago:Object , prov:Agent ;
+          rdfs:comment "A human traffic participant (Driver, VRU) capable of perception and action." .
+
+rcao:Driver rdf:type owl:Class ;
+            rdfs:subClassOf ago:Human ;
+            rdfs:comment "Represents the human operator whose awareness is critical." .
+
+### 2. Traffic Control Elements (Aligned with CSV: Infrastructure)
+# Defines the target of the driver's perception.
+ago:TrafficControlElement rdf:type owl:Class ;
+                          rdfs:subClassOf ago:Object ;
+                          rdfs:comment "Regulatory objects like TrafficSign, TrafficSignal." .
+
+ago:TrafficSignal rdf:type owl:Class ;
+                  rdfs:subClassOf ago:TrafficControlElement ;
+                  rdfs:comment "Signaling devices (e.g., Traffic Lights) to control traffic flow." .
+
+### 3. Functional Extension of Information Source
+# Note: No new class needed, but comment updated to include biological sensors.
+# rcao:InformationSource includes "Eyes" as valid instance types.

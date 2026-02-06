@@ -7,7 +7,7 @@ Here's the RCAO Postcard showing all the classes and relations (solid line indic
 
 ## Availability
 The ontology is available in a number of formats:
-* [Turtle]()
+* [Turtle](./versions/rcao-v0.4.1.ttl)
 * [RDF/XML]()
 * [JSON-LD]()
 * [NTriples]()
@@ -15,9 +15,9 @@ The ontology is available in a number of formats:
 ## Documentation
 We automatically generate documentation for RCAO using OntoSpy, Pylode and Widoco wizard:
 
-* [OntoSpy](https://AIGGREGATE.gitlab.io/rca_datamodel/rcao/OntoSpy/index.html)
+* [OntoSpy](https://AIGGREGATE.gitlab.io/rca_datamodel/rcao/docs/ontospy-docs/index.html)
 * [Pylode](https://AIGGREGATE.gitlab.io/rca_datamodel/rcao/Pylode/index.html)
-* [Widoco](https://AIGGREGATE.gitlab.io/rca_datamodel/rcao/Widoco/index.html)
+* [Widoco](https://AIGGREGATE.gitlab.io/rca_datamodel/rcao/docs/widoco-docs/index.html)
 
 ## Contributing
 

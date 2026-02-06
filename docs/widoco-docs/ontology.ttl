@@ -1,0 +1,379 @@
+@prefix : <http://www.example.org/rcao#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.example.org/rcao#> .
+
+<http://www.example.org/rcao> rdf:type owl:Ontology ;
+                               owl:imports <http://vcd.vicomtech.org/ontology/automotive#> ,
+                                           <http://www.w3.org/ns/prov-o#> ;
+                               <http://purl.org/dc/terms/created> "2026-02-02"^^xsd:date ;
+                               <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0000-0000-0000> ;
+                               <http://purl.org/dc/terms/description> "Resilient Collective Awareness Ontology (RCAO) extension aligned with AGO and PROV-O." ;
+                               <http://purl.org/dc/terms/modified> "2026-02-02"^^xsd:date ;
+                               <http://purl.org/dc/terms/publisher> <https://example.org/publisher> ;
+                               <http://purl.org/dc/terms/title> "Resilient Collective Awareness Ontology" ;
+                               rdfs:comment "Resilient Collective Awareness Ontology (RCAO) extension aligned with AGO and PROV-O." ;
+                               owl:versionInfo "1.0.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.example.org/rcao#derivedFrom
+:derivedFrom rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasDerivedFrom> ;
+             rdfs:domain :AwarenessState ;
+             rdfs:range [ rdf:type owl:Class ;
+                          owl:unionOf ( :AwarenessState
+                                        :InformationSource
+                                      )
+                        ] ;
+             rdfs:comment "Links an awareness state to the source or previous state from which it was derived." .
+
+
+###  http://www.example.org/rcao#encapsulates
+:encapsulates rdf:type owl:ObjectProperty ;
+              rdfs:domain :V2XMessage ;
+              rdfs:range :AwarenessState ;
+              rdfs:comment "Links a V2X message to the AwarenessState(s) it carries." .
+
+
+###  http://www.example.org/rcao#fusesState
+:fusesState rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
+            rdfs:domain :FusionProcess ;
+            rdfs:range :AwarenessState ;
+            rdfs:comment "Explicitly identifies which awareness states were consumed during the fusion process." .
+
+
+###  http://www.example.org/rcao#hasAwarenessState
+:hasAwarenessState rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :hasSubject ;
+                   rdfs:domain <http://vcd.vicomtech.org/ontology/automotive#Object> ;
+                   rdfs:range :AwarenessState ;
+                   rdfs:comment "Links a subject (an agent-like object) to a state of awareness it possesses." .
+
+
+###  http://www.example.org/rcao#hasResilience
+:hasResilience rdf:type owl:ObjectProperty ;
+               rdfs:domain :AwarenessState ;
+               rdfs:range :ResilienceAttribute ;
+               rdfs:comment "Associates an awareness state with its quality and trust metrics." .
+
+
+###  http://www.example.org/rcao#hasSourceResilience
+:hasSourceResilience rdf:type owl:ObjectProperty ;
+                     rdfs:domain :InformationSource ;
+                     rdfs:range :ResilienceAttribute ;
+                     rdfs:comment "Links a sensor/source to intrinsic quality attributes (e.g., occlusion map) independent of specific measurements." .
+
+
+###  http://www.example.org/rcao#hasSubject
+:hasSubject rdf:type owl:ObjectProperty ;
+            rdfs:domain :AwarenessState ;
+            rdfs:range <http://vcd.vicomtech.org/ontology/automotive#Object> ;
+            rdfs:comment "Identifies the agent holding the awareness state." .
+
+
+###  http://www.example.org/rcao#informs
+:informs rdf:type owl:ObjectProperty ;
+         rdfs:domain :AwarenessState ;
+         rdfs:range :AwarenessState ;
+         rdfs:comment "Models the flow of information from perception to comprehension." .
+
+
+###  http://www.example.org/rcao#isAwarenessOf
+:isAwarenessOf rdf:type owl:ObjectProperty ;
+               rdfs:domain :AwarenessState ;
+               rdfs:range owl:Thing ;
+               rdfs:comment "Links an awareness state to the entity (Object, Action, or Context) it is about." .
+
+
+###  http://www.example.org/rcao#justifiedBy
+:justifiedBy rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasInfluencedBy> ;
+             rdfs:domain <http://vcd.vicomtech.org/ontology/automotive#Action> ;
+             rdfs:range :AwarenessState ;
+             rdfs:comment "Indicates the AwarenessState that provided the reason for an Action." .
+
+
+###  http://www.example.org/rcao#outputsTo
+:outputsTo rdf:type owl:ObjectProperty ;
+           rdfs:domain <http://vcd.vicomtech.org/ontology/automotive#Action> ;
+           rdfs:range :HumanMachineInterface ;
+           rdfs:comment "Indicates the device where an action displays information." .
+
+
+###  http://www.example.org/rcao#runsProcess
+:runsProcess rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+             owl:inverseOf <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+             rdfs:domain <http://www.w3.org/ns/prov#Agent> ;
+             rdfs:range <http://www.w3.org/ns/prov#Activity> ;
+             rdfs:comment "Links the ADS or Algorithm to the computational process it is executing." .
+
+
+###  http://www.example.org/rcao#usesSource
+:usesSource rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
+            rdfs:domain <http://www.w3.org/ns/prov#Activity> ;
+            rdfs:range :AwarenessState ;
+            rdfs:comment "Indicates that an action/process utilized a specific awareness state." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.example.org/rcao#hasConfidence
+:hasConfidence rdf:type owl:DatatypeProperty ;
+               rdfs:domain :AwarenessState ;
+               rdfs:range xsd:float ;
+               rdfs:comment "A confidence score (0.0 to 1.0) directly associated with the perception." .
+
+
+###  http://www.example.org/rcao#hasFusionStrategy
+:hasFusionStrategy rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :AwarenessState ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "Describes the logic used to fuse data (e.g., 'agreement_consolidation', 'weighted_average')." .
+
+
+###  http://www.example.org/rcao#hasTimestamp
+:hasTimestamp rdf:type owl:DatatypeProperty ;
+              rdfs:domain :AwarenessState ;
+              rdfs:range xsd:dateTime ;
+              rdfs:comment "The time at which the data was generated or observed." .
+
+
+###  http://www.example.org/rcao#hasTrustScore
+:hasTrustScore rdf:type owl:DatatypeProperty ;
+               rdfs:domain :ResilienceAttribute ;
+               rdfs:range xsd:float ;
+               rdfs:comment "A quantifiable trust score for an information source." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://vcd.vicomtech.org/ontology/automotive#Action
+<http://vcd.vicomtech.org/ontology/automotive#Action> rdf:type owl:Class .
+
+
+###  http://vcd.vicomtech.org/ontology/automotive#Context
+<http://vcd.vicomtech.org/ontology/automotive#Context> rdf:type owl:Class .
+
+
+###  http://vcd.vicomtech.org/ontology/automotive#Human
+<http://vcd.vicomtech.org/ontology/automotive#Human> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://vcd.vicomtech.org/ontology/automotive#Object> ,
+                                                                     <http://www.w3.org/ns/prov#Agent> ;
+                                                     rdfs:comment "A human traffic participant (Driver, VRU) capable of perception and action." .
+
+
+###  http://vcd.vicomtech.org/ontology/automotive#Infrastructure
+<http://vcd.vicomtech.org/ontology/automotive#Infrastructure> rdf:type owl:Class ;
+                                                              rdfs:subClassOf <http://vcd.vicomtech.org/ontology/automotive#Object> ;
+                                                              rdfs:comment "Static physical elements of the road environment." .
+
+
+###  http://vcd.vicomtech.org/ontology/automotive#Object
+<http://vcd.vicomtech.org/ontology/automotive#Object> rdf:type owl:Class .
+
+
+###  http://vcd.vicomtech.org/ontology/automotive#RoadMarking
+<http://vcd.vicomtech.org/ontology/automotive#RoadMarking> rdf:type owl:Class ;
+                                                           rdfs:subClassOf <http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement> ;
+                                                           rdfs:comment "Painted indications on the road surface." .
+
+
+###  http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement
+<http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement> rdf:type owl:Class ;
+                                                                     rdfs:subClassOf <http://vcd.vicomtech.org/ontology/automotive#Infrastructure> ;
+                                                                     rdfs:comment "Regulatory objects governing traffic flow." .
+
+
+###  http://vcd.vicomtech.org/ontology/automotive#TrafficSign
+<http://vcd.vicomtech.org/ontology/automotive#TrafficSign> rdf:type owl:Class ;
+                                                           rdfs:subClassOf <http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement> ;
+                                                           rdfs:comment "Vertical signage (e.g., Speed Limit signs)." .
+
+
+###  http://vcd.vicomtech.org/ontology/automotive#TrafficSignal
+<http://vcd.vicomtech.org/ontology/automotive#TrafficSignal> rdf:type owl:Class ;
+                                                             rdfs:subClassOf <http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement> ;
+                                                             rdfs:comment "Active signaling devices (e.g., Traffic Lights)." .
+
+
+###  http://www.example.org/rcao#Algorithm
+:Algorithm rdf:type owl:Class ;
+           rdfs:subClassOf <http://vcd.vicomtech.org/ontology/automotive#Object> ,
+                           <http://www.w3.org/ns/prov#Agent> ;
+           rdfs:comment "Computational agents (Fusion, Path Planning) acting as subjects within the traffic ontology." .
+
+
+###  http://www.example.org/rcao#AutomatedDrivingSystem
+:AutomatedDrivingSystem rdf:type owl:Class ;
+                        rdfs:subClassOf <http://vcd.vicomtech.org/ontology/automotive#Object> ,
+                                        <http://www.w3.org/ns/prov#Agent> ;
+                        rdfs:comment "Represents the ADS agent." .
+
+
+###  http://www.example.org/rcao#AwarenessState
+:AwarenessState rdf:type owl:Class ;
+                rdfs:subClassOf owl:Thing ;
+                rdfs:comment "A reification of the awareness relationship." .
+
+
+###  http://www.example.org/rcao#BroadcastActivity
+:BroadcastActivity rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
+                   rdfs:comment "The process of encoding and transmitting awareness states via V2X." .
+
+
+###  http://www.example.org/rcao#Completeness
+:Completeness rdf:type owl:Class ;
+              rdfs:subClassOf :ResilienceAttribute ;
+              rdfs:comment "Measure of information completeness (e.g., Visibility/Occlusion Maps)." .
+
+
+###  http://www.example.org/rcao#ComprehensionAwareness
+:ComprehensionAwareness rdf:type owl:Class ;
+                        rdfs:subClassOf :AwarenessState ;
+                        owl:disjointWith :PerceptualAwareness ;
+                        rdfs:comment "Level 2 SA: Understanding of significance/meaning." .
+
+
+###  http://www.example.org/rcao#ComprehensionProcess
+:ComprehensionProcess rdf:type owl:Class ;
+                      rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
+                      rdfs:comment "The activity of synthesizing PerceptualAwareness into ComprehensionAwareness (Level 2 SA)." .
+
+
+###  http://www.example.org/rcao#Driver
+:Driver rdf:type owl:Class ;
+        rdfs:subClassOf <http://vcd.vicomtech.org/ontology/automotive#Human> ;
+        rdfs:comment "Represents the human operator whose awareness is critical." .
+
+
+###  http://www.example.org/rcao#FusionProcess
+:FusionProcess rdf:type owl:Class ;
+               rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
+               rdfs:comment "A computational process that aggregates multiple AwarenessState instances into a single fused state." .
+
+
+###  http://www.example.org/rcao#HumanMachineInterface
+:HumanMachineInterface rdf:type owl:Class ;
+                       rdfs:subClassOf <http://vcd.vicomtech.org/ontology/automotive#Object> ,
+                                       :InformationSource ;
+                       rdfs:comment "A device (dashboard) that acts as an information source for human agents." .
+
+
+###  http://www.example.org/rcao#InformationSource
+:InformationSource rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                   rdfs:comment "Hardware or software generating data (Sensors, V2X, Algorithms)." .
+
+
+###  http://www.example.org/rcao#PerceptionProcess
+:PerceptionProcess rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
+                   rdfs:comment "The activity of converting raw sensor data into PerceptualAwareness (Level 1 SA)." .
+
+
+###  http://www.example.org/rcao#PerceptualAwareness
+:PerceptualAwareness rdf:type owl:Class ;
+                     rdfs:subClassOf :AwarenessState ;
+                     rdfs:comment "Level 1 SA: Direct perception of objects." .
+
+
+###  http://www.example.org/rcao#PositionalAccuracy
+:PositionalAccuracy rdf:type owl:Class ;
+                    rdfs:subClassOf :ResilienceAttribute ;
+                    rdfs:comment "Quantifies uncertainty in location (e.g., Covariance Matrix)." .
+
+
+###  http://www.example.org/rcao#ProjectionAwareness
+:ProjectionAwareness rdf:type owl:Class ;
+                     rdfs:subClassOf :AwarenessState ;
+                     rdfs:comment "Level 3 SA: Prediction of future states." .
+
+
+###  http://www.example.org/rcao#ResilienceAttribute
+:ResilienceAttribute rdf:type owl:Class ;
+                     rdfs:comment "Qualitative attributes describing robustness or trust." .
+
+
+###  http://www.example.org/rcao#Risk
+:Risk rdf:type owl:Class ;
+      rdfs:subClassOf <http://vcd.vicomtech.org/ontology/automotive#Context> ;
+      rdfs:comment "A formalized assessment of potential danger (Context)." .
+
+
+###  http://www.example.org/rcao#RoadSideUnit
+:RoadSideUnit rdf:type owl:Class ;
+              rdfs:subClassOf <http://vcd.vicomtech.org/ontology/automotive#Object> ,
+                              <http://www.w3.org/ns/prov#Agent> ;
+              rdfs:comment "Intelligent infrastructure capable of perception and V2X communication (RSU)." .
+
+
+###  http://www.example.org/rcao#TemporalFreshness
+:TemporalFreshness rdf:type owl:Class ;
+                   rdfs:subClassOf :ResilienceAttribute ;
+                   rdfs:comment "Captures data age/latency to prevent usage of stale information." .
+
+
+###  http://www.example.org/rcao#V2XMessage
+:V2XMessage rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+            rdfs:comment "A digital artifact transmitted between agents containing awareness states (e.g., ETSI CPM)." .
+
+
+###  http://www.example.org/rcao#VirtualSensorAlgorithm
+:VirtualSensorAlgorithm rdf:type owl:Class ;
+                        rdfs:subClassOf :Algorithm ,
+                                        :InformationSource ;
+                        rdfs:comment "An algorithm that acts as a traceable source of information (Virtual Sensor), effectively bridging prov:Agent and prov:Entity." .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
