@@ -1,0 +1,196 @@
+@prefix : <http://www.example.org/scenario3#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ago: <http://vcd.vicomtech.org/ontology/automotive#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rcao: <http://www.example.org/rcao#> .
+@prefix schema: <http://schema.org/> .
+@base <http://www.example.org/scenario3> .
+
+<http://www.example.org/scenario3> rdf:type owl:Ontology ;
+    # ESTA LÍNEA ES LA CLAVE: Importa su ontología base
+    owl:imports <http://www.example.org/rcao> .
+
+
+#################################################################
+#    1. ACTORS & INFRASTRUCTURE
+#################################################################
+
+### The Vehicles and Humans
+:EgoVehicle1 rdf:type rcao:ConnectedVehicle ;
+    ago:hasPart :ADS1 , :LIDAR1 ;
+    rdfs:label "The Ego Vehicle" .
+
+:Pedestrian1 rdf:type rcao:VulnerableRoadUser ;
+    rdfs:label "Pedestrian crossing the road" .
+
+### The Agents (Local & Remote)
+:ADS1 rdf:type rcao:AutomatedDrivingSystem ;
+    ago:partOf :EgoVehicle1 ;
+    # INITIAL AGENCY: ADS is running the driving action
+    rcao:runsProcess :DrivingAutonomously1 ;
+    rdfs:label "ADS System Supervisor" .
+
+
+:DrivingAutonomously1 rdf:type ago:Action ;
+    rdfs:label "Standard Autonomous Driving (Lane Keeping/Cruise)" .
+
+:RSU1 rdf:type rcao:RoadSideUnit ;
+    ago:hasPart :Camera1 ;
+    rdfs:label "Intelligent Intersection Unit" .
+
+### The Algorithms (The "Brains")
+## AMENDMENT: Typed as VirtualSensorAlgorithm because it creates new evidence (Step 1)
+#:Fusion_Algo rdf:type rcao:VirtualSensorAlgorithm ;
+#    ago:partOf :ADS1 ;
+#    rdfs:label "Kalman Filter Fusion Module. Low-Level Sensor Fusion Module" .
+
+:Fusion_Algo rdf:type rcao:Algorithm ;
+    ago:partOf :ADS1 ;
+    rdfs:label "Low-Level Sensor Fusion Module" .
+
+# Standard Algorithm for high-level logic (Step 2)
+:RCA_Algo rdf:type rcao:Algorithm ;
+    ago:partOf :ADS1 ;
+    rdfs:label "Risk & Comprehension Module" .
+
+    
+#################################################################
+#    2. INPUTS: PROCESSES & PERCEPTION
+#################################################################
+
+#### INPUT REMOTE RSU Side #### ----
+
+:Camera1 rdf:type rcao:InformationSource ;
+    ago:partOf :RSU1 ;
+    rcao:hasResilienceAttribute :Camera1_Score .
+
+# Resilience Attributes [Source 54]
+:Camera1_Score rdf:type rcao:ResilienceAttribute ;
+    rcao:hasTrustScore "0.95"^^xsd:float ; 
+    rdfs:label "RSU Camera Reliability Metric" .
+
+:PerceptionProcess_RSU1 rdf:type rcao:PerceptionProcess ;
+    rdfs:label "RSU Computer Vision" ;
+    prov:used :Camera1 .
+
+# AGENCY UPDATE: RSU executes the process [Source 62]
+:RSU1 rcao:runsProcess :PerceptionProcess_RSU1 .
+
+:PA1_RSU1_of_P1 rdf:type rcao:PerceptualAwareness ;
+    rcao:hasSubject :RSU1 ;
+    rcao:hasObject :Pedestrian1 ;
+    rcao:hasSource :Camera1 ;
+    
+    # PROVENANCE UPDATE: Points to Activity [Source 54]
+    rcao:wasComputedBy :PerceptionProcess_RSU1 ;
+    
+    rcao:hasConfidence "0.88"^^xsd:float ;
+    rcao:hasTimestamp "2024-10-25T14:30:00.05Z"^^xsd:dateTime .
+
+### V2X BROADCAST ###
+
+# V2X Transmission Activity
+:BroadcastCPM1 rdf:type rcao:BroadcastActivity .
+:RSU1 rcao:runsProcess :BroadcastCPM1 .
+
+:CPM1 rdf:type rcao:V2XMessage ;
+    rcao:contains :PA1_RSU1_of_P1 ;
+    # CORRECT: :CPM1 is a digital artifact (prov:Entity), so we keep standard PROV-O
+    prov:wasGeneratedBy :BroadcastCPM1 .
+
+
+#### INPUT LOCAL Perception EGO Side ----
+
+:LIDAR1 rdf:type rcao:InformationSource ;
+    ago:partOf :EgoVehicle1 ;
+    # ResilienceMap para equilibrar el escenario [Fuente 66]
+    rcao:hasResilienceAttribute :LIDAR1_Visibility_Map .
+
+:LIDAR1_Visibility_Map rdf:type rcao:ResilienceAttribute ;
+    # Nota: Usamos Completeness para mapas de visibilidad [Fuente 13]
+    rcao:hasCompleteness "0.4"^^xsd:float ; 
+    rdfs:label "Lidar Occlusion Map (Low Visibility)" .
+
+# ADS Local Perception
+:PerceptionProcess_ADS1 rdf:type rcao:PerceptionProcess ;
+    prov:used :LIDAR1 .  # Standard PROV
+
+# AGENCY UPDATE: ADS executes the process [Source 62]
+:ADS1 rcao:runsProcess :PerceptionProcess_ADS1 .
+
+:PA1_ADS1_of_P1 rdf:type rcao:PerceptualAwareness ;
+    rcao:hasSubject :ADS1 ;
+    rcao:hasObject :Pedestrian1 ;
+    rcao:hasSource :LIDAR1 ;
+    
+    # PROVENANCE UPDATE: Points to Activity [Source 54]
+    rcao:wasComputedBy :PerceptionProcess_ADS1 ;
+    
+    rcao:hasConfidence "0.75"^^xsd:float ;
+    rcao:hasTimestamp "2024-10-25T14:30:00.05Z"^^xsd:dateTime .
+
+#################################################################
+#    3. STEP 1: FUSION (Intermediate L1 Awareness)
+#################################################################
+
+
+:FusionProcess1 rdf:type rcao:FusionProcess ;
+    rcao:fusesState :PA1_ADS1_of_P1 , :PA1_RSU1_of_P1 .
+
+# AGENCY UPDATE: Fusion Algorithm executes the process [Source 64]
+:Fusion_Algo rcao:runsProcess :FusionProcess1 .
+
+:PA_Fused_of_P1 rdf:type rcao:PerceptualAwareness ;
+    rcao:hasSubject :ADS1 ;
+    rcao:hasObject :Pedestrian1 ;
+    
+    # SOURCE: Remains pointing to Algorithm (as Virtual Sensor)
+    rcao:hasSource :Fusion_Algo ;
+    
+    # PROVENANCE UPDATE: Points to Activity [Source 29]
+    rcao:wasComputedBy :FusionProcess1 ;
+    
+    rcao:derivedFrom :PA1_RSU1_of_P1 , :PA1_ADS1_of_P1 ;
+    rcao:hasConfidence "0.95"^^xsd:float .
+
+#################################################################
+#    4. STEP 2: COMPREHENSION (Final L2 Awareness)
+#################################################################
+
+:ComprehensionProcess1 rdf:type rcao:ComprehensionProcess ;
+    rcao:fusesState :PA_Fused_of_P1 .
+
+# AGENCY UPDATE: RCA Algorithm executes the process [Source 66]
+:RCA_Algo rcao:runsProcess :ComprehensionProcess1 .
+
+:Risk_Collision_Pedestrian1 rdf:type rcao:Risk .
+
+:CA1_ADS1_of_RCP1 rdf:type rcao:ComprehensionAwareness ;
+    #who possess the awareness
+    rcao:hasSubject :RCA_Algo ; 
+    #what is the target and is about
+    rcao:hasObject :Risk_Collision_Pedestrian1 ;
+    #provenance, where did it come from
+    prov:wasComputedBy :ComprehensionProcess1 ;
+    rcao:derivedFrom :PA_Fused_of_P1 ;
+    #how was calculated
+    rcao:hasFusionStrategy "agreement_consolidation"^^xsd:string ;
+    #Description in XAI
+    rdfs:comment "Camera in RSU ahead detected a pedestrian; the confidence of the perception process is good. LIDAR1 also detected a pedestrian, and its visibility map is good. Both perceptions agree, so the presence of the Pedestrian is consolidated. According to the vehicle movement, there is risk of collision."@en .
+
+
+#################################################################
+#    5. DECISION (Harmonized Action)
+#################################################################
+
+# Definimos la maniobra de riesgo (MRM)
+:AdaptSpeed1 rdf:type ago:Action ;
+    rdfs:label "Pre-emptive Braking / Speed Adaptation" ;
+    # TRAZABILIDAD CAUSAL: ¿Por qué frenamos? [Fuente 9, 18]
+    rcao:justifiedBy :CA1_ADS1_of_RCP1 .
+
+# CIERRE DEL BUCLE: El ADS ejecuta explícitamente esta nueva acción [Fuente 18]
+:ADS1 rcao:runsProcess :AdaptSpeed1 .

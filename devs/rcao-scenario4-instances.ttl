@@ -1,0 +1,111 @@
+@prefix : <http://www.example.org/rcao-scenario4#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ago: <http://vcd.vicomtech.org/ontology/automotive#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rcao: <http://www.example.org/rcao#> .
+@base <http://www.example.org/rcao-scenario4> .
+
+<http://www.example.org/rcao-scenario4> rdf:type owl:Ontology ;
+    owl:imports <http://www.example.org/rcao> ;
+    rdfs:comment "Scenario 4: Human Driver Awareness Model (Perception -> Comprehension -> Action)" .
+
+
+
+#################################################################
+#    1. ACTORS & SCENE ELEMENTS
+#################################################################
+
+### The Vehicle Context
+:EgoVehicle1 rdf:type rcao:ConnectedVehicle ;
+    ago:hasPart :HumanDriver1 ;
+    rdfs:label "The Manual Driving Vehicle" .
+
+### The Human Agent (structured as a system of a systems)
+:HumanDriver1 rdf:type ago:Human , prov:Agent ;
+    ago:partOf :EgoVehicle1 ;
+    ago:hasPart :Brain1 , :Eyes1 ;
+    rdfs:label "Driver Nerea Doe" ;
+    ago:isIn :EgoVehicle1 .
+
+### The Cognitive Processor (The "Algorithm")
+# Following Brain1 isA rcao:Algorithm
+:Brain1 rdf:type rcao:Algorithm ;
+    rdfs:label "Driver's Cognitive Processing Unit (e.g., Nerea´s Brain)" .
+
+### The Biological Sensor (Source)
+:Eyes1 rdf:type rcao:InformationSource ;
+    rdfs:label "Driver's Visual System Sensor (Eyes)" .
+    # We can even attach resilience (e.g., visual acuity)
+    # rcao:hasSourceResilience :Driver_Visual_Acuity .
+
+# :Driver_Visual_Acuity rdf:type rcao:Completeness ;
+#    rdfs:label "20/20 Vision" .
+
+### The External World Object (Target)
+:TrafficLight1 rdf:type ago:TrafficSignal ;
+    rdfs:label "Intersection Traffic Light" ;
+    rdfs:comment "State: Red Light" .
+
+#################################################################
+#    2. STEP A: HUMAN PERCEPTION (Sensory Input SEEING)
+#################################################################
+
+### The Activity of Seeing by Nerea
+:PerceptionProcess_Driver1 rdf:type rcao:PerceptionProcess ;
+    rdfs:label "Visual Observation Process" ;
+    prov:used :Eyes1 ;
+    rcao:runsProcess :HumanDriver1 . # The human agent executes the seeing
+
+### The Resulting State Leve 1 SA: "I see a red light"
+:PA1_Driver1_of_TL1 rdf:type rcao:PerceptualAwareness ;
+    rcao:hasSubject :HumanDriver1 ;
+    rcao:hasObject :TrafficLight1 ;
+    rcao:hasSource :Eyes1 ; # Provenance: Origin is Biological
+    rcao:hasConfidence "0.98"^^xsd:float ; # Direct observation
+    rcao:hasTimestamp "2026-02-02T12:00:01"^^xsd:dateTime ;
+    rcao:wasComputedBy :PerceptionProcess_Driver1 .
+
+#################################################################
+#    3. STEP B: HUMAN COMPREHENSION (Cognitive Processing UNDERSTANDING)
+#################################################################
+
+
+### The Activity of Thinking/Understanding
+:ComprehensionProcess_Driver1 rdf:type rcao:ComprehensionAwareness ;
+    rdfs:label "Cognitive Interpretation Activity" .
+
+### The Agent runs it
+:Brain1 rcao:runsProcess :ComprehensionProcess_Driver1 .
+
+
+# Context: the meaning of the red light
+:Context_MustStop rdf:type ago:Context ;
+    rdfs:label "Regulatory requirement to Stop" .
+
+### The Resulting State LEVEL 2 SA: "I understand I must stop"
+:CA1_Driver1_of_MustStop rdf:type rcao:ComprehensionAwareness ;
+    rcao:hasSubject :Brain1 ; # The brain (Subject) holds understanding and is the processor (Brain) as per Scenario 4 notes
+    rcao:hasObject :Context_MustStop ;
+    # Lineage: Understanding comes from Seeing
+    rcao:derivedFrom :PA1_Driver1_of_TL1 ;
+    rcao:wasComputedBy :ComprehensionProcess_Driver1 ;
+    rcao:hasTimestamp "2024-10-25T15:00:00.05Z"^^xsd:dateTime ;
+    rdfs:comment "Driver undertood the Red Light implies a mandatory action to stop".
+
+#################################################################
+#    4. STEP C: HUMAN ACTION (BRAKING)
+#################################################################
+
+### The Physical Action
+:Action_ApplyBrakes rdf:type ago:Action ;
+    rdfs:label "Manual Braking Maneuver" ;
+    ### Explainability Link (XAI for Humans)
+    rcao:justifiedBy :CA1_Driver1_of_MustStop .
+
+# END CIRCLE The whole human performs the action
+:HumanDriver1 rcao:runsProcess :Action_ApplyBrakes . 
+# Logic: The driver braked BECAUSE the Brain understood the need to stop.

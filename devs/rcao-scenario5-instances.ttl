@@ -1,0 +1,135 @@
+@prefix : <http://www.example.org/rcao-scenario5#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ago: <http://vcd.vicomtech.org/ontology/automotive#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rcao: <http://www.example.org/rcao#> .
+@base <http://www.example.org/rcao-scenario5> .
+
+<http://www.example.org/rcao-scenario5> rdf:type owl:Ontology ;
+    owl:imports <http://www.example.org/rcao> ;
+    rdfs:comment "Scenario 5: Meta-Awareness (Theory of Mind in ADS)" .
+
+#################################################################
+# PART 1: ELEMENTS & MEREOLOGY
+#################################################################
+
+:EgoVehicle1 rdf:type rcao:ConnectedVehicle ;
+    ago:hasPart :ADS1 , :DMS_Camera1 , :RearLIDAR1 .
+
+:HumanDriver1 rdf:type ago:Human , prov:Agent ;
+    ago:hasPart :Brain1 , :Eyes1 ;
+    ago:isIn :EgoVehicle1 .
+
+# Sub-Agents of the ADS
+:ADS1 rdf:type rcao:AutomatedDrivingSystem ;
+    ago:hasPart :InteriorExteriorFusion_Algo , :RCA_Algo .
+
+# Algoritmo de Fusión (hereda InformationSource lógicamente)
+:InteriorExteriorFusion_Algo rdf:type rcao:Algorithm ;
+    rcao:hasResilienceAttribute :FusionAlgo_Accuracy .
+
+:FusionAlgo_Accuracy rdf:type rcao:TrustScore ;
+    rcao:hasTrustScore "0.95"^^xsd:float .
+
+# Final Decision Maker
+:RCA_Algo rdf:type rcao:Algorithm .
+
+# Physical Entities & Actions
+:DMS_Camera1 rdf:type rcao:InformationSource .
+:RearLIDAR1 rdf:type rcao:InformationSource .
+:Pedestrian1 rdf:type rcao:VulnerableRoadUser .
+
+:DriverLooksAtMirror1 rdf:type ago:Action ;
+    rdfs:label "Driver averts gaze to rear-view mirror" .
+
+#################################################################
+# PART 2: PARALLEL RAW PERCEPTIONS (Inputs)
+#################################################################
+
+# --- Event A: DMS Perception ---
+:PerceptionProcess_DMS1 rdf:type rcao:PerceptionProcess ;
+    prov:used :DMS_Camera1 .
+
+:ADS1 rcao:runsProcess :PerceptionProcess_DMS1 .
+
+:PA1_DMS_of_DriverAction rdf:type rcao:PerceptualAwareness ;
+    rcao:hasSubject :ADS1 ;
+    rcao:hasObject :DriverLooksAtMirror1 ;
+    rcao:hasSource :DMS_Camera1 ;
+    rcao:wasComputedBy :PerceptionProcess_DMS1 .
+
+# --- Event B: LIDAR Perception ---
+:PerceptionProcess_LIDAR1 rdf:type rcao:PerceptionProcess ;
+    prov:used :RearLIDAR1 .
+
+:ADS1 rcao:runsProcess :PerceptionProcess_LIDAR1 .
+
+:PA2_LIDAR_of_P1 rdf:type rcao:PerceptualAwareness ;
+    rcao:hasSubject :ADS1 ;
+    rcao:hasObject :Pedestrian1 ;
+    rcao:hasSource :RearLIDAR1 ;
+    rcao:wasComputedBy :PerceptionProcess_LIDAR1 .
+
+#################################################################
+# PART 3: INTERMEDIATE PROCESSING (The Fusion Algorithm's Job)
+#################################################################
+
+:FusionProcess1 rdf:type rcao:FusionProcess ;
+    rcao:fusesState :PA1_DMS_of_DriverAction , :PA2_LIDAR_of_P1 .
+
+:InteriorExteriorFusion_Algo rcao:runsProcess :FusionProcess1 .
+
+# Salida de la Fusión: Alineación de Mirada
+:PA3_Fusion_GazeAligned rdf:type rcao:PerceptualAwareness ;
+    rcao:hasSubject :ADS1 ;
+    rcao:hasObject :HumanDriver1 ;
+    
+    # LA FUENTE ES EL ALGORITMO:
+    rcao:hasSource :InteriorExteriorFusion_Algo ;
+    
+    rcao:wasComputedBy :FusionProcess1 ;
+    rcao:derivedFrom :PA1_DMS_of_DriverAction , :PA2_LIDAR_of_P1 ;
+    rdfs:comment "gaze_aligned_with_pedestrian_location" .
+
+#################################################################
+# PART 4: FINAL COMPREHENSION (Meta-Awareness)
+#################################################################
+
+:ComprehensionProcess_RCA1 rdf:type rcao:ComprehensionProcess ;
+    rcao:fusesState :PA3_Fusion_GazeAligned .
+
+:RCA_Algo rcao:runsProcess :ComprehensionProcess_RCA1 .
+
+# ESTADO HIPOTÉTICO (La Consciencia Inferida del Conductor)
+:PA_Driver_of_P1_Inferred rdf:type rcao:PerceptualAwareness ;
+    rcao:hasSubject :HumanDriver1 ;
+    rcao:hasObject :Pedestrian1 ;
+    rdfs:comment "status = inferred" .
+
+# LA META-CONSCIENCIA (La máquina entiende el estado humano)
+:CA_RCA_of_DriverAwareness rdf:type rcao:ComprehensionAwareness ;
+    rcao:hasSubject :RCA_Algo ;
+    
+    # META-ANIDAMIENTO: El Objeto es el estado PA_Driver_of_P1_Inferred
+    rcao:hasObject :PA_Driver_of_P1_Inferred ;
+    
+    rcao:derivedFrom :PA3_Fusion_GazeAligned ;
+    prov:wasGeneratedBy :ComprehensionProcess_RCA1 ;
+    
+    # CRITICAL FIX: Removed the invalid [1, 2] syntax from the string termination
+    rdfs:comment "The RCA module, using the output of the trusted fusion algorithm, concludes with high confidence that the driver is aware of the pedestrian." .
+
+#################################################################
+# PART 5: DECISION MAKING (XAI Justification)
+#################################################################
+
+:Action_Monitor rdf:type ago:Action ;
+    rdfs:label "Silent Monitoring (No Warning Issued)" ;
+    
+    # JUSTIFICACIÓN XAI:
+    rcao:justifiedBy :CA_RCA_of_DriverAwareness .
+
+:ADS1 rcao:runsProcess :Action_Monitor .
