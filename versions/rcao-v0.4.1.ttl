@@ -169,7 +169,7 @@ rcao:TemporalFreshness rdf:type owl:Class ;
 
 rcao:Completeness rdf:type owl:Class ;
     rdfs:subClassOf rcao:ResilienceAttribute ;
-    rdfs:comment "Measure of information completeness (e.g., Visibility/Occlusion Maps)." .
+    rdfs:comment "Measure of the degree of completion of the information (e.g., Visibility/Occlusion Maps)." .
 
 #################################################################
 #    AMENDMENTS Scenario 1: Properties (Linking Agents, Sources & Quality)

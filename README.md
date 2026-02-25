@@ -9,7 +9,7 @@ Here's the RCAO Postcard showing all the classes and relations (solid line indic
 
 ## Availability
 The ontology is available in a number of formats:
-* [Turtle](./versions/rcao-v0.4.1.ttl)
+* [Turtle](./versions/rcao-v0.6.ttl)
 * [RDF/XML]()
 * [JSON-LD]()
 * [NTriples]()
