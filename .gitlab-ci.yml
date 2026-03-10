@@ -1,10 +1,11 @@
 pages:
   stage: deploy
   script:
-    - mkdir -p public/rcao/docs/
-    - cp -r docs/widoco-docs public/rcao/docs/
-    - cp -r docs/ontospy-docs public/rcao/docs/
-    - cp public/rcao/docs/widoco-docs/index-en.html public/index.html
+    - mkdir -p public
+    - cp -r docs/widoco-docs/* public/
+    - cp public/index-en.html public/index.html
+    - mkdir -p public/ontospy
+    - cp -r docs/ontospy-docs/* public/ontospy/
   artifacts:
     paths:
       - public
