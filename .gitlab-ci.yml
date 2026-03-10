@@ -2,7 +2,7 @@ pages:
   stage: deploy
   script:
     - mkdir -p public
-    - cp docs/widoco-docs/index-en.html public/index.html
+    - cp -r docs/widoco-docs/* public/
   artifacts:
     paths:
       - public
