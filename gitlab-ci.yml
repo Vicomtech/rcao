@@ -1,0 +1,10 @@
+pages:
+  stage: deploy
+  script:
+    - mkdir -p public
+    - cp docs/widoco-docs/index-en.html public/index.html
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
