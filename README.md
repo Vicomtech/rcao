@@ -17,9 +17,8 @@ The ontology is available in a number of formats:
 ## Documentation
 We automatically generate documentation for RCAO using OntoSpy, Pylode and Widoco wizard:
 
-* [OntoSpy](https://AIGGREGATE.gitlab.io/rca_datamodel/rcao/docs/ontospy-docs/index.html)
-* [Pylode](https://AIGGREGATE.gitlab.io/rca_datamodel/rcao/Pylode/index.html)
-* [Widoco](https://AIGGREGATE.gitlab.io/rca_datamodel/rcao/docs/widoco-docs/index.html)
+* [OntoSpy](https://rca-datamodel-a24b0f.gitlab.io/ontospy/)
+* [Widoco](https://rca-datamodel-a24b0f.gitlab.io)
 
 ## Contributing
 

@@ -3,11 +3,41 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "http://www.example.org/rcao#AwarenessState"
+      "@id" : "https://www.w3id.org/rcao#AwarenessState"
     }, {
-      "@id" : "http://www.example.org/rcao#InformationSource"
+      "@id" : "https://www.w3id.org/rcao#InformationSource"
     } ]
   } ]
+}, {
+  "@id" : "_:genid4",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://vcd.vicomtech.org/ontology/automotive#Action"
+    }, {
+      "@id" : "http://vcd.vicomtech.org/ontology/automotive#Context"
+    }, {
+      "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
+    }, {
+      "@id" : "https://www.w3id.org/rcao#AwarenessState"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid9",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://vcd.vicomtech.org/ontology/automotive#Action"
+    }, {
+      "@id" : "http://www.w3.org/ns/prov#Activity"
+    } ]
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/author",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/contributor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://purl.org/dc/terms/created",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
@@ -16,6 +46,15 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://purl.org/dc/terms/description",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/identifier",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/issued",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/license",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://purl.org/dc/terms/modified",
@@ -27,6 +66,30 @@
   "@id" : "http://purl.org/dc/terms/title",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
+  "@id" : "http://purl.org/vocab/vann/preferredNamespacePrefix",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/vocab/vann/preferredNamespaceUri",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://schema.org/citation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://schema.org/domainIncludes",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://schema.org/hasPart",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#TransitiveProperty" ]
+}, {
+  "@id" : "http://schema.org/isPartOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#TransitiveProperty" ]
+}, {
+  "@id" : "http://schema.org/logo",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://schema.org/rangeIncludes",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
   "@id" : "http://vcd.vicomtech.org/ontology/automotive#Action",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
@@ -36,18 +99,18 @@
   "@id" : "http://vcd.vicomtech.org/ontology/automotive#Human",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A human traffic participant (Driver, VRU) capable of perception and action."
+    "@value" : "Represents the human occupant of a vehicle [Source 367]."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
-  }, {
     "@id" : "http://www.w3.org/ns/prov#Agent"
+  }, {
+    "@id" : "https://www.w3id.org/rcao#TrafficParticipant"
   } ]
 }, {
   "@id" : "http://vcd.vicomtech.org/ontology/automotive#Infrastructure",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Static physical elements of the road environment."
+    "@value" : "Represents the static and intelligent elements of the road environment [Source 367]."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
@@ -59,7 +122,7 @@
   "@id" : "http://vcd.vicomtech.org/ontology/automotive#RoadMarking",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Painted indications on the road surface."
+    "@value" : "Painted indications on the road surface [Source 368]."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement"
@@ -68,7 +131,7 @@
   "@id" : "http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Regulatory objects governing traffic flow."
+    "@value" : "Represent regulatory objects like TrafficSign, TrafficSignal and RoadMarking [Source 368]."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://vcd.vicomtech.org/ontology/automotive#Infrastructure"
@@ -77,7 +140,7 @@
   "@id" : "http://vcd.vicomtech.org/ontology/automotive#TrafficSign",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Vertical signage (e.g., Speed Limit signs)."
+    "@value" : "Vertical signage regulating traffic [Source 368]."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement"
@@ -86,470 +149,665 @@
   "@id" : "http://vcd.vicomtech.org/ontology/automotive#TrafficSignal",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Active signaling devices (e.g., Traffic Lights)."
+    "@value" : "Active signaling devices [Source 368]."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao",
+  "@id" : "http://vcd.vicomtech.org/ontology/automotive#hasPart",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://schema.org/hasPart"
+  } ]
+}, {
+  "@id" : "http://vcd.vicomtech.org/ontology/automotive#isIn",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Denots spatial and positional relation of an object within another."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
+  } ]
+}, {
+  "@id" : "http://vcd.vicomtech.org/ontology/automotive#objectOfAction",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Links an action to the object that is being acted upon."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Action"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
+  } ]
+}, {
+  "@id" : "http://vcd.vicomtech.org/ontology/automotive#subjectOfAction",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Links an action to the object that is performing it."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Action"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#altLabel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#broader",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#definition",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#example",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#historyNote",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#inScheme",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#prefLabel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "https://www.w3id.org/rcao",
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://purl.org/dc/terms/contributor" : [ {
+    "@value" : "New collaborator ()"
+  }, {
+    "@value" : "other ()"
+  } ],
   "http://purl.org/dc/terms/created" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#date",
-    "@value" : "2026-02-02"
+    "@type" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "@value" : "2026-03-25T12:00:00"
   } ],
   "http://purl.org/dc/terms/creator" : [ {
-    "@id" : "https://orcid.org/0000-0000-0000-0000"
+    "@value" : "Carlos Utrilla Guerrero, Vicomtech (0000-0002-9994-1462)"
+  }, {
+    "@value" : "Marcos Nieto-Doncel (0000-0002-7853-6708)"
+  }, {
+    "@value" : "Nerea, Vicomtech (0000-0001-9879-0992)"
   } ],
-  "http://purl.org/dc/terms/description" : [ {
-    "@value" : "Resilient Collective Awareness Ontology (RCAO) extension aligned with AGO and PROV-O."
+  "http://purl.org/dc/terms/issued" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "@value" : "2025-03-25T12:00:00"
   } ],
-  "http://purl.org/dc/terms/modified" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#date",
-    "@value" : "2026-02-02"
+  "http://purl.org/dc/terms/license" : [ {
+    "@value" : "https://creativecommons.org/licenses/by/4.0/"
   } ],
   "http://purl.org/dc/terms/publisher" : [ {
-    "@id" : "https://example.org/publisher"
+    "@value" : "https://www.vicomtech.org/en"
   } ],
   "http://purl.org/dc/terms/title" : [ {
-    "@value" : "Resilient Collective Awareness Ontology"
+    "@value" : "Resilience Collective Awareness Ontology"
+  } ],
+  "http://purl.org/vocab/vann/preferredNamespacePrefix" : [ {
+    "@value" : "rcao"
+  } ],
+  "http://purl.org/vocab/vann/preferredNamespaceUri" : [ {
+    "@value" : "https://www.w3id.org/rcao#"
+  } ],
+  "http://schema.org/citation" : [ {
+    "@value" : "Cite this ontology as: Utrilla Guerrero, C., Aranjuelo Ansa, N., and Nieto Doncel, M., (2025). Resilience Collective Awareness Ontology 0.1.0. https://w3id.org/rcao/0.1.0"
+  } ],
+  "http://schema.org/logo" : [ {
+    "@value" : "https://raw.githubusercontent.com/SolarCheme.png"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Resilient Collective Awareness Ontology (RCAO) extension aligned with AGO and PROV-O."
+    "@language" : "en",
+    "@value" : "The RCAO aims to provide a data and view model to manage data encoded in AV which are also known as fishbone or cause and effect AV (AV)."
   } ],
   "http://www.w3.org/2002/07/owl#imports" : [ {
     "@id" : "http://vcd.vicomtech.org/ontology/automotive#"
   }, {
     "@id" : "http://www.w3.org/ns/prov-o#"
   } ],
+  "http://www.w3.org/2002/07/owl#versionIRI" : [ {
+    "@id" : "https://w3id.org/rcao/0.1.0"
+  } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
-    "@value" : "1.0.0"
+    "@value" : "0.1.0"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#Algorithm",
+  "@id" : "https://www.w3id.org/rcao#Algorithm",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Computational agents (Fusion, Path Planning) acting as subjects within the traffic ontology."
+    "@value" : "Represents the fusion logic agent that consumes input states and produces fused state [Source 373]."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
-  }, {
     "@id" : "http://www.w3.org/ns/prov#Agent"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#AutomatedDrivingSystem",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Represents the ADS agent."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
   }, {
-    "@id" : "http://www.w3.org/ns/prov#Agent"
+    "@id" : "https://www.w3id.org/rcao#InformationSource"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#AwarenessState",
+  "@id" : "https://www.w3id.org/rcao#AmbientCondition",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A reification of the awareness relationship."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/2002/07/owl#Thing"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#BroadcastActivity",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The process of encoding and transmitting awareness states via V2X."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#Activity"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#Completeness",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Measure of information completeness (e.g., Visibility/Occlusion Maps)."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.example.org/rcao#ResilienceAttribute"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#ComprehensionAwareness",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Level 2 SA: Understanding of significance/meaning."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
-  } ],
-  "http://www.w3.org/2002/07/owl#disjointWith" : [ {
-    "@id" : "http://www.example.org/rcao#PerceptualAwareness"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#ComprehensionProcess",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The activity of synthesizing PerceptualAwareness into ComprehensionAwareness (Level 2 SA)."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#Activity"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#Driver",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Represents the human operator whose awareness is critical."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Human"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#FusionProcess",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A computational process that aggregates multiple AwarenessState instances into a single fused state."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#Activity"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#HumanMachineInterface",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A device (dashboard) that acts as an information source for human agents."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
-  }, {
-    "@id" : "http://www.example.org/rcao#InformationSource"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#InformationSource",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Hardware or software generating data (Sensors, V2X, Algorithms)."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#Entity"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#PerceptionProcess",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The activity of converting raw sensor data into PerceptualAwareness (Level 1 SA)."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#Activity"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#PerceptualAwareness",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Level 1 SA: Direct perception of objects."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#PositionalAccuracy",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Quantifies uncertainty in location (e.g., Covariance Matrix)."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.example.org/rcao#ResilienceAttribute"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#ProjectionAwareness",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Level 3 SA: Prediction of future states."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#ResilienceAttribute",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Qualitative attributes describing robustness or trust."
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#Risk",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A formalized assessment of potential danger (Context)."
+    "@value" : "Represents environmental factors that affect driving including wather as rain, snow, fog, sun or lighting day, dark, gare or roadSurfaceCondition e.g., wet, icy,debris [Source 369]."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://vcd.vicomtech.org/ontology/automotive#Context"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#RoadSideUnit",
+  "@id" : "https://www.w3id.org/rcao#AutomatedDrivingSystem",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Intelligent infrastructure capable of perception and V2X communication (RSU)."
+    "@value" : "Direct mapping of the primary machine agent, now aligned with the AGO taxonomy [Source 366]."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
-  }, {
     "@id" : "http://www.w3.org/ns/prov#Agent"
+  }, {
+    "@id" : "https://www.w3id.org/rcao#TrafficParticipant"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#TemporalFreshness",
+  "@id" : "https://www.w3id.org/rcao#AwarenessState",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Captures data age/latency to prevent usage of stale information."
+    "@value" : "Represents the status of awareness relationship, describing a specific subject's awareness of a specific object at a point in time, characterized by resilience attributes. The central hub linking subjects (instances of ago:Object), objects (instances of ago:Object, ago:Action, etc.), and their context [Source 370]."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.example.org/rcao#ResilienceAttribute"
+    "@id" : "http://www.w3.org/2002/07/owl#Thing"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#V2XMessage",
+  "@id" : "https://www.w3id.org/rcao#BroadcastActivity",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A digital artifact transmitted between agents containing awareness states (e.g., ETSI CPM)."
+    "@value" : "The specific activity of encoding and transmitting awareness states via V2X messages (CPM, DENM) to other agents [Source 189]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Activity"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#Completeness",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Represents the degree of completion of the information [Source 372]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://www.w3id.org/rcao#ResilienceAttribute"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#ComprehensionAwareness",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Level 2: Represents a synthetised understanding of the meaning or significance of perceived information. An instance of this class is typically derived from one or more PerceptualAwareness states. For example, from perceiving a vehicle's position and its brake light status, a Level 2 state can be inferred: 'Subject S is aware that the vehicle ahead is braking hard, constituting a potential hazard' [Source 371]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
+  } ],
+  "http://www.w3.org/2002/07/owl#disjointWith" : [ {
+    "@id" : "https://www.w3id.org/rcao#PerceptualAwareness"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#ComprehensionProcess",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The activity of synthesizing multiple PerceptualAwareness states and Context to infer meaning or risk (ComprehensionAwareness). Represents the 'Understanding' phase [Source 57, 201]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Activity"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#ConnectedVehicle",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Represents other vehicles equpped with V2x technology, whose state can be inferred from broadcast messages [Source 367]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://www.w3id.org/rcao#TrafficParticipant"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#Driver",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Represents the human operator whose awareness is critical for safe takovers [Source 367]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Human"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#FusionProcess",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A specific process that aggregates multiple AwarenessStates into a single intermediate fused state (PA_Fused) [Source 5, 80]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Activity"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#InformationSource",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Represents a source of data or information from which an AwarenessState is derived from different sources, enabling traceability and trust assessment. Represents the hardware or service generating data (e.g., sensor:Lidar, v2x:RSU_1) [Source 371-372]."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#VirtualSensorAlgorithm",
+  "@id" : "https://www.w3id.org/rcao#InfrastructureElement",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "An algorithm that acts as a traceable source of information (Virtual Sensor), effectively bridging prov:Agent and prov:Entity."
+    "@value" : "Represents intelligent roadside infrastructure such as Roadside Units (RSUs) and smart traffic signals via SPaT, MAP and CPM messages [Source 367]."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.example.org/rcao#Algorithm"
-  }, {
-    "@id" : "http://www.example.org/rcao#InformationSource"
+    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Infrastructure"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#derivedFrom",
+  "@id" : "https://www.w3id.org/rcao#ODD_MonitoringProcess",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The activity of monitoring the Operational Design Domain (ODD) limits to trigger fallbacks if boundaries are exceeded (Scenario 7) [Source 346]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Activity"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#PerceptionProcess",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The activity of converting raw sensor data (Lidar, Camera, Eyes) into a structured PerceptualAwareness state (Level 1 SA). Executed by an Agent [Source 56, 200]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Activity"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#PerceptualAwareness",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Level 1: Represents the direct, uninterpreted perception of an object and its attributes. An instance of this class would assert, for example, 'Subject S is aware of Object O at position (x, y, z) with velocity V.' It is the semantic representation of processed sensor data [Source 370-371]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#PositionalAccuracy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Represents the uncertain in an object´s location as covariance matrix [Source 372]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://www.w3id.org/rcao#ResilienceAttribute"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#ProjectionAwareness",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Level 3:Represents a prediction about the future state of an object or situation derived from Level 2. Subject S is aware that the vehicle ahead is predicted to come to a complete stop in 1.5 seconds at position (x', y', z') [Source 371]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#ResilienceAttribute",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Represents a quantificable or qualitative attribute describing the robustness, quality, or trustworthiness of an AwarnessState or InformationSoruce [Source 372]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/2002/07/owl#Thing"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#Risk",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Represents a formalised assessment of potential dangerous [Source 369]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Context"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#RoadSideUnit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Represents intelligent roadside infrastructure capable of V2X communication [Source 367]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Agent"
+  }, {
+    "@id" : "https://www.w3id.org/rcao#InfrastructureElement"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#TemporalFreshness",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Represents the age of the information [Source 372]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://www.w3id.org/rcao#ResilienceAttribute"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#TrafficParticipant",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Represents anything tangible in the environment [Source 366]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#TrustScore",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Represent the degree of confidence and trust of the information [Source 372]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://www.w3id.org/rcao#ResilienceAttribute"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#V2XMessage",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Represent the data package intelligent road infrastructure emits [Source 367]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://www.w3id.org/rcao#InformationSource"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#VulnerableRoadUser",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Represents any single real-world entitity as pederastian, cyclist, and other non-motorized road users [Source 367]."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Human"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#contains",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Links an awareness state to the source or previous state from which it was derived."
+    "@value" : "Links a V2X message (Container) to the AwarenessState (Content) it carries."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
+    "@id" : "https://www.w3id.org/rcao#V2XMessage"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://schema.org/hasPart"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#derivedFrom",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Links an awareness state to the source or previous state from which it was derived. Decoupled from PROV-O to prevent Entity coercion."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "_:genid1"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#wasDerivedFrom"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#encapsulates",
+  "@id" : "https://www.w3id.org/rcao#fusesState",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Links a V2X message to the AwarenessState(s) it carries."
+    "@value" : "Explicitly links the process to the specific intermediate states it consumed. Identifies specific awareness states consumed during a fusion or comprehension process."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.example.org/rcao#V2XMessage"
+    "@id" : "http://www.w3.org/ns/prov#Activity"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#fusesState",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Explicitly identifies which awareness states were consumed during the fusion process."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.example.org/rcao#FusionProcess"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#used"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#hasAwarenessState",
+  "@id" : "https://www.w3id.org/rcao#hasAwarenessState",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Links a subject (an agent-like object) to a state of awareness it possesses."
+    "@value" : "Links a subject to a state of awareness it possesses."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
   } ],
   "http://www.w3.org/2002/07/owl#inverseOf" : [ {
-    "@id" : "http://www.example.org/rcao#hasSubject"
+    "@id" : "https://www.w3id.org/rcao#hasSubject"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#hasConfidence",
+  "@id" : "https://www.w3id.org/rcao#hasBrakeStatus",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A confidence score (0.0 to 1.0) directly associated with the perception."
+    "@value" : "Status of the brakes (Active/Inactive)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
+    "@id" : "https://www.w3id.org/rcao#ConnectedVehicle"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#boolean"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#hasConfidence",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#float"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#hasFusionStrategy",
+  "@id" : "https://www.w3id.org/rcao#hasDetectionConfidence",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Describes the logic used to fuse data (e.g., 'agreement_consolidation', 'weighted_average')."
+    "@value" : "Confidence level of the detection."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
+    "@id" : "https://www.w3id.org/rcao#ConnectedVehicle"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#float"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#hasEventType",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Type of event detected."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://www.w3id.org/rcao#ConnectedVehicle"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#hasResilience",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Associates an awareness state with its quality and trust metrics."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.example.org/rcao#ResilienceAttribute"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#hasSourceResilience",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Links a sensor/source to intrinsic quality attributes (e.g., occlusion map) independent of specific measurements."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.example.org/rcao#InformationSource"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.example.org/rcao#ResilienceAttribute"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#hasSubject",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Identifies the agent holding the awareness state."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#hasTimestamp",
+  "@id" : "https://www.w3id.org/rcao#hasFusionStrategy",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The time at which the data was generated or observed."
+    "@value" : "Describes the logic strategy used by the RCA_Algo (e.g., 'agreement_consolidation')."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#hasTrustScore",
+  "@id" : "https://www.w3id.org/rcao#hasHeading",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A quantifiable trust score for an information source."
+    "@value" : "Heading of the participant."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.example.org/rcao#ResilienceAttribute"
+    "@id" : "https://www.w3id.org/rcao#ConnectedVehicle"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#float"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#informs",
+  "@id" : "https://www.w3id.org/rcao#hasObject",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Models the flow of information from perception to comprehension."
+    "@value" : "Connects what is being aware of. Updated to support Meta-Awareness (Awareness of Awareness)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
+    "@id" : "_:genid4"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#isAwarenessOf",
+  "@id" : "https://www.w3id.org/rcao#hasOutcome",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Links an awareness state to the entity (Object, Action, or Context) it is about."
+    "@value" : "Establishes the link of unique Outcomes from different sensors."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://www.w3id.org/rcao#InformationSource"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#hasResilience",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Associates an awareness state with its quality and trust metrics."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://www.w3id.org/rcao#ResilienceAttribute"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#hasSource",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Establishes the link of data from different sensors about perceptual awareness."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://www.w3id.org/rcao#InformationSource"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#hasSourceResilience",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://www.w3id.org/rcao#InformationSource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://www.w3id.org/rcao#ResilienceAttribute"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#hasSpeed",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Speed of the participant."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://www.w3id.org/rcao#ConnectedVehicle"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#float"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#hasSubject",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Identify the Subject (e.g., any instance of prov:Agent that is linked to an rcao:AwarenessState via the rcao:hasSubject property). Connects who is aware of what."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Object"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#hasTimestamp",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The time at which the data was generated or observed."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#dateTime"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#hasTrustScore",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A link of the trust of the value."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://www.w3id.org/rcao#ResilienceAttribute"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#float"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#informs",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Establishes the flow from lower levels to Comprehension."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://www.w3id.org/rcao#ComprehensionAwareness"
+  } ]
+}, {
+  "@id" : "https://www.w3id.org/rcao#isAwarenessOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Links an awareness state to the entity it is about."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#Thing"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#justifiedBy",
+  "@id" : "https://www.w3id.org/rcao#justifiedBy",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Indicates the AwarenessState that provided the reason for an Action."
+    "@value" : "Causal link to indicate maneuver is caused from awareness state level X."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://vcd.vicomtech.org/ontology/automotive#Action"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#wasInfluencedBy"
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#outputsTo",
+  "@id" : "https://www.w3id.org/rcao#runsProcess",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Indicates the device where an action displays information."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://vcd.vicomtech.org/ontology/automotive#Action"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.example.org/rcao#HumanMachineInterface"
-  } ]
-}, {
-  "@id" : "http://www.example.org/rcao#runsProcess",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Links the ADS or Algorithm to the computational process it is executing."
+    "@value" : "Associate Agents (Humans or machines) with the process or action to be undertaken."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://www.w3.org/ns/prov#Agent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/ns/prov#Activity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#wasAssociatedWith"
+    "@id" : "_:genid9"
   } ],
   "http://www.w3.org/2002/07/owl#inverseOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#wasAssociatedWith"
   } ]
 }, {
-  "@id" : "http://www.example.org/rcao#usesSource",
+  "@id" : "https://www.w3id.org/rcao#wasComputedBy",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Indicates that an action/process utilized a specific awareness state."
+    "@value" : "Custom XAI provenance property. Links a computed AwarenessState to the specific computational Activity (e.g., PerceptionProcess, FusionProcess) that generated it, bypassing strict PROV-O Entity coercion."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.w3.org/ns/prov#Activity"
+    "@id" : "https://www.w3id.org/rcao#AwarenessState"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.example.org/rcao#AwarenessState"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#used"
+    "@id" : "http://www.w3.org/ns/prov#Activity"
   } ]
-}, {
-  "@id" : "http://www.w3.org/2001/XMLSchema#date",
-  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ]
 } ]

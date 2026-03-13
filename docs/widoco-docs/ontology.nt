@@ -1,14 +1,23 @@
-<http://www.example.org/rcao> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
-<http://www.example.org/rcao> <http://www.w3.org/2002/07/owl#imports> <http://vcd.vicomtech.org/ontology/automotive#> .
-<http://www.example.org/rcao> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/prov-o#> .
-<http://www.example.org/rcao> <http://purl.org/dc/terms/created> "2026-02-02"^^<http://www.w3.org/2001/XMLSchema#date> .
-<http://www.example.org/rcao> <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0000-0000-0000> .
-<http://www.example.org/rcao> <http://purl.org/dc/terms/description> "Resilient Collective Awareness Ontology (RCAO) extension aligned with AGO and PROV-O." .
-<http://www.example.org/rcao> <http://purl.org/dc/terms/modified> "2026-02-02"^^<http://www.w3.org/2001/XMLSchema#date> .
-<http://www.example.org/rcao> <http://purl.org/dc/terms/publisher> <https://example.org/publisher> .
-<http://www.example.org/rcao> <http://purl.org/dc/terms/title> "Resilient Collective Awareness Ontology" .
-<http://www.example.org/rcao> <http://www.w3.org/2000/01/rdf-schema#comment> "Resilient Collective Awareness Ontology (RCAO) extension aligned with AGO and PROV-O." .
-<http://www.example.org/rcao> <http://www.w3.org/2002/07/owl#versionInfo> "1.0.0" .
+<https://www.w3id.org/rcao> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://www.w3id.org/rcao> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/rcao/0.1.0> .
+<https://www.w3id.org/rcao> <http://www.w3.org/2002/07/owl#imports> <http://vcd.vicomtech.org/ontology/automotive#> .
+<https://www.w3id.org/rcao> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/prov-o#> .
+<https://www.w3id.org/rcao> <http://purl.org/dc/terms/contributor> "New collaborator ()" .
+<https://www.w3id.org/rcao> <http://purl.org/dc/terms/contributor> "other ()" .
+<https://www.w3id.org/rcao> <http://purl.org/dc/terms/created> "2026-03-25T12:00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://www.w3id.org/rcao> <http://purl.org/dc/terms/creator> "Carlos Utrilla Guerrero, Vicomtech (0000-0002-9994-1462)" .
+<https://www.w3id.org/rcao> <http://purl.org/dc/terms/creator> "Marcos Nieto-Doncel (0000-0002-7853-6708)" .
+<https://www.w3id.org/rcao> <http://purl.org/dc/terms/creator> "Nerea, Vicomtech (0000-0001-9879-0992)" .
+<https://www.w3id.org/rcao> <http://purl.org/dc/terms/issued> "2025-03-25T12:00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://www.w3id.org/rcao> <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/4.0/" .
+<https://www.w3id.org/rcao> <http://purl.org/dc/terms/publisher> "https://www.vicomtech.org/en" .
+<https://www.w3id.org/rcao> <http://purl.org/dc/terms/title> "Resilience Collective Awareness Ontology" .
+<https://www.w3id.org/rcao> <http://purl.org/vocab/vann/preferredNamespacePrefix> "rcao" .
+<https://www.w3id.org/rcao> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://www.w3id.org/rcao#" .
+<https://www.w3id.org/rcao> <http://schema.org/citation> "Cite this ontology as: Utrilla Guerrero, C., Aranjuelo Ansa, N., and Nieto Doncel, M., (2025). Resilience Collective Awareness Ontology 0.1.0. https://w3id.org/rcao/0.1.0" .
+<https://www.w3id.org/rcao> <http://schema.org/logo> "https://raw.githubusercontent.com/SolarCheme.png" .
+<https://www.w3id.org/rcao> <http://www.w3.org/2000/01/rdf-schema#comment> "The RCAO aims to provide a data and view model to manage data encoded in AV which are also known as fishbone or cause and effect AV (AV)."@en .
+<https://www.w3id.org/rcao> <http://www.w3.org/2002/07/owl#versionInfo> "0.1.0" .
 # 
 # 
 # #################################################################
@@ -17,6 +26,12 @@
 # #
 # #################################################################
 # 
+# 
+# http://purl.org/dc/terms/author
+<http://purl.org/dc/terms/author> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # http://purl.org/dc/terms/created
 <http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
@@ -27,6 +42,15 @@
 # http://purl.org/dc/terms/description
 <http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
+# http://purl.org/dc/terms/identifier
+<http://purl.org/dc/terms/identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
 # http://purl.org/dc/terms/modified
 <http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
@@ -36,17 +60,44 @@
 # http://purl.org/dc/terms/title
 <http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
-# #################################################################
-# #
-# #    Datatypes
-# #
-# #################################################################
+# http://schema.org/citation
+<http://schema.org/citation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
+# http://schema.org/domainIncludes
+<http://schema.org/domainIncludes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
-# http://www.w3.org/2001/XMLSchema#date
-<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# http://schema.org/logo
+<http://schema.org/logo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://schema.org/rangeIncludes
+<http://schema.org/rangeIncludes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#broader
+<http://www.w3.org/2004/02/skos/core#broader> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#example
+<http://www.w3.org/2004/02/skos/core#example> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#historyNote
+<http://www.w3.org/2004/02/skos/core#historyNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#inScheme
+<http://www.w3.org/2004/02/skos/core#inScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # 
 # 
@@ -57,100 +108,161 @@
 # #################################################################
 # 
 # 
-# http://www.example.org/rcao#derivedFrom
-<http://www.example.org/rcao#derivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.example.org/rcao#derivedFrom> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasDerivedFrom> .
-<http://www.example.org/rcao#derivedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#derivedFrom> <http://www.w3.org/2000/01/rdf-schema#range> _:genid1 .
+# http://schema.org/hasPart
+<http://schema.org/hasPart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://schema.org/hasPart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+# 
+# http://schema.org/isPartOf
+<http://schema.org/isPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://schema.org/isPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+# 
+# http://vcd.vicomtech.org/ontology/automotive#hasPart
+<http://vcd.vicomtech.org/ontology/automotive#hasPart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vcd.vicomtech.org/ontology/automotive#hasPart> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://schema.org/hasPart> .
+# 
+# http://vcd.vicomtech.org/ontology/automotive#isIn
+<http://vcd.vicomtech.org/ontology/automotive#isIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vcd.vicomtech.org/ontology/automotive#isIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vcd.vicomtech.org/ontology/automotive#Object> .
+<http://vcd.vicomtech.org/ontology/automotive#Object> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vcd.vicomtech.org/ontology/automotive#isIn> <http://www.w3.org/2000/01/rdf-schema#range> <http://vcd.vicomtech.org/ontology/automotive#Object> .
+<http://vcd.vicomtech.org/ontology/automotive#isIn> <http://www.w3.org/2000/01/rdf-schema#comment> "Denots spatial and positional relation of an object within another." .
+# 
+# http://vcd.vicomtech.org/ontology/automotive#objectOfAction
+<http://vcd.vicomtech.org/ontology/automotive#objectOfAction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vcd.vicomtech.org/ontology/automotive#objectOfAction> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vcd.vicomtech.org/ontology/automotive#Action> .
+<http://vcd.vicomtech.org/ontology/automotive#Action> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vcd.vicomtech.org/ontology/automotive#objectOfAction> <http://www.w3.org/2000/01/rdf-schema#range> <http://vcd.vicomtech.org/ontology/automotive#Object> .
+<http://vcd.vicomtech.org/ontology/automotive#objectOfAction> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an action to the object that is being acted upon." .
+# 
+# http://vcd.vicomtech.org/ontology/automotive#subjectOfAction
+<http://vcd.vicomtech.org/ontology/automotive#subjectOfAction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vcd.vicomtech.org/ontology/automotive#subjectOfAction> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vcd.vicomtech.org/ontology/automotive#Action> .
+<http://vcd.vicomtech.org/ontology/automotive#subjectOfAction> <http://www.w3.org/2000/01/rdf-schema#range> <http://vcd.vicomtech.org/ontology/automotive#Object> .
+<http://vcd.vicomtech.org/ontology/automotive#subjectOfAction> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an action to the object that is performing it." .
+# 
+# https://www.w3id.org/rcao#contains
+<https://www.w3id.org/rcao#contains> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#contains> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://schema.org/hasPart> .
+<https://www.w3id.org/rcao#contains> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#V2XMessage> .
+<https://www.w3id.org/rcao#contains> <http://www.w3.org/2000/01/rdf-schema#range> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#contains> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a V2X message (Container) to the AwarenessState (Content) it carries." .
+# 
+# https://www.w3id.org/rcao#derivedFrom
+<https://www.w3id.org/rcao#derivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#derivedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#derivedFrom> <http://www.w3.org/2000/01/rdf-schema#range> _:genid1 .
 _:genid1 <http://www.w3.org/2002/07/owl#unionOf> _:genid3 .
 _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid2 .
 _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/rcao#InformationSource> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://www.w3id.org/rcao#InformationSource> .
 _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.example.org/rcao#AwarenessState> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://www.w3id.org/rcao#AwarenessState> .
 _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 _:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#derivedFrom> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an awareness state to the source or previous state from which it was derived." .
+<https://www.w3id.org/rcao#derivedFrom> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an awareness state to the source or previous state from which it was derived. Decoupled from PROV-O to prevent Entity coercion." .
 # 
-# http://www.example.org/rcao#encapsulates
-<http://www.example.org/rcao#encapsulates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.example.org/rcao#encapsulates> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/rcao#V2XMessage> .
-<http://www.example.org/rcao#encapsulates> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#encapsulates> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a V2X message to the AwarenessState(s) it carries." .
+# https://www.w3id.org/rcao#fusesState
+<https://www.w3id.org/rcao#fusesState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#fusesState> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#used> .
+<https://www.w3id.org/rcao#fusesState> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Activity> .
+<https://www.w3id.org/rcao#fusesState> <http://www.w3.org/2000/01/rdf-schema#range> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#fusesState> <http://www.w3.org/2000/01/rdf-schema#comment> "Explicitly links the process to the specific intermediate states it consumed. Identifies specific awareness states consumed during a fusion or comprehension process." .
 # 
-# http://www.example.org/rcao#fusesState
-<http://www.example.org/rcao#fusesState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.example.org/rcao#fusesState> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#used> .
-<http://www.example.org/rcao#fusesState> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/rcao#FusionProcess> .
-<http://www.example.org/rcao#fusesState> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#fusesState> <http://www.w3.org/2000/01/rdf-schema#comment> "Explicitly identifies which awareness states were consumed during the fusion process." .
+# https://www.w3id.org/rcao#hasAwarenessState
+<https://www.w3id.org/rcao#hasAwarenessState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#hasAwarenessState> <http://www.w3.org/2002/07/owl#inverseOf> <https://www.w3id.org/rcao#hasSubject> .
+<https://www.w3id.org/rcao#hasAwarenessState> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vcd.vicomtech.org/ontology/automotive#Object> .
+<https://www.w3id.org/rcao#hasAwarenessState> <http://www.w3.org/2000/01/rdf-schema#range> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#hasAwarenessState> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a subject to a state of awareness it possesses." .
 # 
-# http://www.example.org/rcao#hasAwarenessState
-<http://www.example.org/rcao#hasAwarenessState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.example.org/rcao#hasAwarenessState> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.example.org/rcao#hasSubject> .
-<http://www.example.org/rcao#hasAwarenessState> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vcd.vicomtech.org/ontology/automotive#Object> .
-<http://vcd.vicomtech.org/ontology/automotive#Object> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#hasAwarenessState> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#hasAwarenessState> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a subject (an agent-like object) to a state of awareness it possesses." .
+# https://www.w3id.org/rcao#hasObject
+<https://www.w3id.org/rcao#hasObject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#hasObject> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#hasObject> <http://www.w3.org/2000/01/rdf-schema#range> _:genid4 .
+_:genid4 <http://www.w3.org/2002/07/owl#unionOf> _:genid8 .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid7 .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid6 .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://www.w3id.org/rcao#AwarenessState> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://vcd.vicomtech.org/ontology/automotive#Object> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://vcd.vicomtech.org/ontology/automotive#Context> .
+<http://vcd.vicomtech.org/ontology/automotive#Context> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://vcd.vicomtech.org/ontology/automotive#Action> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#hasObject> <http://www.w3.org/2000/01/rdf-schema#comment> "Connects what is being aware of. Updated to support Meta-Awareness (Awareness of Awareness)." .
 # 
-# http://www.example.org/rcao#hasResilience
-<http://www.example.org/rcao#hasResilience> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.example.org/rcao#hasResilience> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#hasResilience> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/rcao#ResilienceAttribute> .
-<http://www.example.org/rcao#hasResilience> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates an awareness state with its quality and trust metrics." .
+# https://www.w3id.org/rcao#hasOutcome
+<https://www.w3id.org/rcao#hasOutcome> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#hasOutcome> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#hasOutcome> <http://www.w3.org/2000/01/rdf-schema#range> <https://www.w3id.org/rcao#InformationSource> .
+<https://www.w3id.org/rcao#hasOutcome> <http://www.w3.org/2000/01/rdf-schema#comment> "Establishes the link of unique Outcomes from different sensors." .
 # 
-# http://www.example.org/rcao#hasSourceResilience
-<http://www.example.org/rcao#hasSourceResilience> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.example.org/rcao#hasSourceResilience> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/rcao#InformationSource> .
-<http://www.example.org/rcao#hasSourceResilience> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/rcao#ResilienceAttribute> .
-<http://www.example.org/rcao#hasSourceResilience> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a sensor/source to intrinsic quality attributes (e.g., occlusion map) independent of specific measurements." .
+# https://www.w3id.org/rcao#hasResilience
+<https://www.w3id.org/rcao#hasResilience> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#hasResilience> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#hasResilience> <http://www.w3.org/2000/01/rdf-schema#range> <https://www.w3id.org/rcao#ResilienceAttribute> .
+<https://www.w3id.org/rcao#hasResilience> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates an awareness state with its quality and trust metrics." .
 # 
-# http://www.example.org/rcao#hasSubject
-<http://www.example.org/rcao#hasSubject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.example.org/rcao#hasSubject> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#hasSubject> <http://www.w3.org/2000/01/rdf-schema#range> <http://vcd.vicomtech.org/ontology/automotive#Object> .
-<http://www.example.org/rcao#hasSubject> <http://www.w3.org/2000/01/rdf-schema#comment> "Identifies the agent holding the awareness state." .
+# https://www.w3id.org/rcao#hasSource
+<https://www.w3id.org/rcao#hasSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#hasSource> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#hasSource> <http://www.w3.org/2000/01/rdf-schema#range> <https://www.w3id.org/rcao#InformationSource> .
+<https://www.w3id.org/rcao#hasSource> <http://www.w3.org/2000/01/rdf-schema#comment> "Establishes the link of data from different sensors about perceptual awareness." .
 # 
-# http://www.example.org/rcao#informs
-<http://www.example.org/rcao#informs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.example.org/rcao#informs> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#informs> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#informs> <http://www.w3.org/2000/01/rdf-schema#comment> "Models the flow of information from perception to comprehension." .
+# https://www.w3id.org/rcao#hasSourceResilience
+<https://www.w3id.org/rcao#hasSourceResilience> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#hasSourceResilience> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#InformationSource> .
+<https://www.w3id.org/rcao#hasSourceResilience> <http://www.w3.org/2000/01/rdf-schema#range> <https://www.w3id.org/rcao#ResilienceAttribute> .
 # 
-# http://www.example.org/rcao#isAwarenessOf
-<http://www.example.org/rcao#isAwarenessOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.example.org/rcao#isAwarenessOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#isAwarenessOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> .
-<http://www.example.org/rcao#isAwarenessOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an awareness state to the entity (Object, Action, or Context) it is about." .
+# https://www.w3id.org/rcao#hasSubject
+<https://www.w3id.org/rcao#hasSubject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#hasSubject> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#hasSubject> <http://www.w3.org/2000/01/rdf-schema#range> <http://vcd.vicomtech.org/ontology/automotive#Object> .
+<https://www.w3id.org/rcao#hasSubject> <http://www.w3.org/2000/01/rdf-schema#comment> "Identify the Subject (e.g., any instance of prov:Agent that is linked to an rcao:AwarenessState via the rcao:hasSubject property). Connects who is aware of what." .
 # 
-# http://www.example.org/rcao#justifiedBy
-<http://www.example.org/rcao#justifiedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.example.org/rcao#justifiedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasInfluencedBy> .
-<http://www.example.org/rcao#justifiedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vcd.vicomtech.org/ontology/automotive#Action> .
-<http://vcd.vicomtech.org/ontology/automotive#Action> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#justifiedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#justifiedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the AwarenessState that provided the reason for an Action." .
+# https://www.w3id.org/rcao#informs
+<https://www.w3id.org/rcao#informs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#informs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#informs> <http://www.w3.org/2000/01/rdf-schema#range> <https://www.w3id.org/rcao#ComprehensionAwareness> .
+<https://www.w3id.org/rcao#informs> <http://www.w3.org/2000/01/rdf-schema#comment> "Establishes the flow from lower levels to Comprehension." .
 # 
-# http://www.example.org/rcao#outputsTo
-<http://www.example.org/rcao#outputsTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.example.org/rcao#outputsTo> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vcd.vicomtech.org/ontology/automotive#Action> .
-<http://www.example.org/rcao#outputsTo> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/rcao#HumanMachineInterface> .
-<http://www.example.org/rcao#outputsTo> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the device where an action displays information." .
+# https://www.w3id.org/rcao#isAwarenessOf
+<https://www.w3id.org/rcao#isAwarenessOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#isAwarenessOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#isAwarenessOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> .
+<https://www.w3id.org/rcao#isAwarenessOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an awareness state to the entity it is about." .
 # 
-# http://www.example.org/rcao#runsProcess
-<http://www.example.org/rcao#runsProcess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.example.org/rcao#runsProcess> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasAssociatedWith> .
-<http://www.example.org/rcao#runsProcess> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/prov#wasAssociatedWith> .
-<http://www.example.org/rcao#runsProcess> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Agent> .
-<http://www.example.org/rcao#runsProcess> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Activity> .
-<http://www.example.org/rcao#runsProcess> <http://www.w3.org/2000/01/rdf-schema#comment> "Links the ADS or Algorithm to the computational process it is executing." .
+# https://www.w3id.org/rcao#justifiedBy
+<https://www.w3id.org/rcao#justifiedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#justifiedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vcd.vicomtech.org/ontology/automotive#Action> .
+<https://www.w3id.org/rcao#justifiedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#justifiedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Causal link to indicate maneuver is caused from awareness state level X." .
 # 
-# http://www.example.org/rcao#usesSource
-<http://www.example.org/rcao#usesSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.example.org/rcao#usesSource> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#used> .
-<http://www.example.org/rcao#usesSource> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Activity> .
-<http://www.example.org/rcao#usesSource> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#usesSource> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that an action/process utilized a specific awareness state." .
+# https://www.w3id.org/rcao#runsProcess
+<https://www.w3id.org/rcao#runsProcess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#runsProcess> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/prov#wasAssociatedWith> .
+<https://www.w3id.org/rcao#runsProcess> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Agent> .
+<https://www.w3id.org/rcao#runsProcess> <http://www.w3.org/2000/01/rdf-schema#range> _:genid9 .
+_:genid9 <http://www.w3.org/2002/07/owl#unionOf> _:genid11 .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid10 .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#Activity> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://vcd.vicomtech.org/ontology/automotive#Action> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#runsProcess> <http://www.w3.org/2000/01/rdf-schema#comment> "Associate Agents (Humans or machines) with the process or action to be undertaken." .
+# 
+# https://www.w3id.org/rcao#wasComputedBy
+<https://www.w3id.org/rcao#wasComputedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://www.w3id.org/rcao#wasComputedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#wasComputedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Activity> .
+<https://www.w3id.org/rcao#wasComputedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Custom XAI provenance property. Links a computed AwarenessState to the specific computational Activity (e.g., PerceptionProcess, FusionProcess) that generated it, bypassing strict PROV-O Entity coercion." .
 # 
 # 
 # 
@@ -161,29 +273,57 @@ _:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 # #################################################################
 # 
 # 
-# http://www.example.org/rcao#hasConfidence
-<http://www.example.org/rcao#hasConfidence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://www.example.org/rcao#hasConfidence> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#hasConfidence> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
-<http://www.example.org/rcao#hasConfidence> <http://www.w3.org/2000/01/rdf-schema#comment> "A confidence score (0.0 to 1.0) directly associated with the perception." .
+# https://www.w3id.org/rcao#hasBrakeStatus
+<https://www.w3id.org/rcao#hasBrakeStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://www.w3id.org/rcao#hasBrakeStatus> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#ConnectedVehicle> .
+<https://www.w3id.org/rcao#hasBrakeStatus> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://www.w3id.org/rcao#hasBrakeStatus> <http://www.w3.org/2000/01/rdf-schema#comment> "Status of the brakes (Active/Inactive)." .
 # 
-# http://www.example.org/rcao#hasFusionStrategy
-<http://www.example.org/rcao#hasFusionStrategy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://www.example.org/rcao#hasFusionStrategy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#hasFusionStrategy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
-<http://www.example.org/rcao#hasFusionStrategy> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the logic used to fuse data (e.g., 'agreement_consolidation', 'weighted_average')." .
+# https://www.w3id.org/rcao#hasConfidence
+<https://www.w3id.org/rcao#hasConfidence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://www.w3id.org/rcao#hasConfidence> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#hasConfidence> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
 # 
-# http://www.example.org/rcao#hasTimestamp
-<http://www.example.org/rcao#hasTimestamp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://www.example.org/rcao#hasTimestamp> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#hasTimestamp> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
-<http://www.example.org/rcao#hasTimestamp> <http://www.w3.org/2000/01/rdf-schema#comment> "The time at which the data was generated or observed." .
+# https://www.w3id.org/rcao#hasDetectionConfidence
+<https://www.w3id.org/rcao#hasDetectionConfidence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://www.w3id.org/rcao#hasDetectionConfidence> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#ConnectedVehicle> .
+<https://www.w3id.org/rcao#hasDetectionConfidence> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<https://www.w3id.org/rcao#hasDetectionConfidence> <http://www.w3.org/2000/01/rdf-schema#comment> "Confidence level of the detection." .
 # 
-# http://www.example.org/rcao#hasTrustScore
-<http://www.example.org/rcao#hasTrustScore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://www.example.org/rcao#hasTrustScore> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.org/rcao#ResilienceAttribute> .
-<http://www.example.org/rcao#hasTrustScore> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
-<http://www.example.org/rcao#hasTrustScore> <http://www.w3.org/2000/01/rdf-schema#comment> "A quantifiable trust score for an information source." .
+# https://www.w3id.org/rcao#hasEventType
+<https://www.w3id.org/rcao#hasEventType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://www.w3id.org/rcao#hasEventType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#ConnectedVehicle> .
+<https://www.w3id.org/rcao#hasEventType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://www.w3id.org/rcao#hasEventType> <http://www.w3.org/2000/01/rdf-schema#comment> "Type of event detected." .
+# 
+# https://www.w3id.org/rcao#hasFusionStrategy
+<https://www.w3id.org/rcao#hasFusionStrategy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://www.w3id.org/rcao#hasFusionStrategy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#hasFusionStrategy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://www.w3id.org/rcao#hasFusionStrategy> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the logic strategy used by the RCA_Algo (e.g., 'agreement_consolidation')." .
+# 
+# https://www.w3id.org/rcao#hasHeading
+<https://www.w3id.org/rcao#hasHeading> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://www.w3id.org/rcao#hasHeading> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#ConnectedVehicle> .
+<https://www.w3id.org/rcao#hasHeading> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<https://www.w3id.org/rcao#hasHeading> <http://www.w3.org/2000/01/rdf-schema#comment> "Heading of the participant." .
+# 
+# https://www.w3id.org/rcao#hasSpeed
+<https://www.w3id.org/rcao#hasSpeed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://www.w3id.org/rcao#hasSpeed> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#ConnectedVehicle> .
+<https://www.w3id.org/rcao#hasSpeed> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<https://www.w3id.org/rcao#hasSpeed> <http://www.w3.org/2000/01/rdf-schema#comment> "Speed of the participant." .
+# 
+# https://www.w3id.org/rcao#hasTimestamp
+<https://www.w3id.org/rcao#hasTimestamp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://www.w3id.org/rcao#hasTimestamp> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://www.w3id.org/rcao#hasTimestamp> <http://www.w3.org/2000/01/rdf-schema#comment> "The time at which the data was generated or observed." .
+# 
+# https://www.w3id.org/rcao#hasTrustScore
+<https://www.w3id.org/rcao#hasTrustScore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://www.w3id.org/rcao#hasTrustScore> <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.w3id.org/rcao#ResilienceAttribute> .
+<https://www.w3id.org/rcao#hasTrustScore> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<https://www.w3id.org/rcao#hasTrustScore> <http://www.w3.org/2000/01/rdf-schema#comment> "A link of the trust of the value." .
 # 
 # 
 # 
@@ -197,149 +337,172 @@ _:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 # http://vcd.vicomtech.org/ontology/automotive#Action
 # 
 # http://vcd.vicomtech.org/ontology/automotive#Context
-<http://vcd.vicomtech.org/ontology/automotive#Context> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 # 
 # http://vcd.vicomtech.org/ontology/automotive#Human
 <http://vcd.vicomtech.org/ontology/automotive#Human> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://vcd.vicomtech.org/ontology/automotive#Human> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Object> .
 <http://vcd.vicomtech.org/ontology/automotive#Human> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Agent> .
-<http://vcd.vicomtech.org/ontology/automotive#Human> <http://www.w3.org/2000/01/rdf-schema#comment> "A human traffic participant (Driver, VRU) capable of perception and action." .
+<http://vcd.vicomtech.org/ontology/automotive#Human> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3id.org/rcao#TrafficParticipant> .
+<http://vcd.vicomtech.org/ontology/automotive#Human> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the human occupant of a vehicle [Source 367]." .
 # 
 # http://vcd.vicomtech.org/ontology/automotive#Infrastructure
 <http://vcd.vicomtech.org/ontology/automotive#Infrastructure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://vcd.vicomtech.org/ontology/automotive#Infrastructure> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Object> .
-<http://vcd.vicomtech.org/ontology/automotive#Infrastructure> <http://www.w3.org/2000/01/rdf-schema#comment> "Static physical elements of the road environment." .
+<http://vcd.vicomtech.org/ontology/automotive#Infrastructure> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the static and intelligent elements of the road environment [Source 367]." .
 # 
 # http://vcd.vicomtech.org/ontology/automotive#Object
 # 
 # http://vcd.vicomtech.org/ontology/automotive#RoadMarking
 <http://vcd.vicomtech.org/ontology/automotive#RoadMarking> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://vcd.vicomtech.org/ontology/automotive#RoadMarking> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement> .
-<http://vcd.vicomtech.org/ontology/automotive#RoadMarking> <http://www.w3.org/2000/01/rdf-schema#comment> "Painted indications on the road surface." .
+<http://vcd.vicomtech.org/ontology/automotive#RoadMarking> <http://www.w3.org/2000/01/rdf-schema#comment> "Painted indications on the road surface [Source 368]." .
 # 
 # http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement
 <http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Infrastructure> .
-<http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement> <http://www.w3.org/2000/01/rdf-schema#comment> "Regulatory objects governing traffic flow." .
+<http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement> <http://www.w3.org/2000/01/rdf-schema#comment> "Represent regulatory objects like TrafficSign, TrafficSignal and RoadMarking [Source 368]." .
 # 
 # http://vcd.vicomtech.org/ontology/automotive#TrafficSign
 <http://vcd.vicomtech.org/ontology/automotive#TrafficSign> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://vcd.vicomtech.org/ontology/automotive#TrafficSign> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement> .
-<http://vcd.vicomtech.org/ontology/automotive#TrafficSign> <http://www.w3.org/2000/01/rdf-schema#comment> "Vertical signage (e.g., Speed Limit signs)." .
+<http://vcd.vicomtech.org/ontology/automotive#TrafficSign> <http://www.w3.org/2000/01/rdf-schema#comment> "Vertical signage regulating traffic [Source 368]." .
 # 
 # http://vcd.vicomtech.org/ontology/automotive#TrafficSignal
 <http://vcd.vicomtech.org/ontology/automotive#TrafficSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://vcd.vicomtech.org/ontology/automotive#TrafficSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#TrafficControlElement> .
-<http://vcd.vicomtech.org/ontology/automotive#TrafficSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "Active signaling devices (e.g., Traffic Lights)." .
+<http://vcd.vicomtech.org/ontology/automotive#TrafficSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "Active signaling devices [Source 368]." .
 # 
-# http://www.example.org/rcao#Algorithm
-<http://www.example.org/rcao#Algorithm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#Algorithm> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Object> .
-<http://www.example.org/rcao#Algorithm> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Agent> .
-<http://www.example.org/rcao#Algorithm> <http://www.w3.org/2000/01/rdf-schema#comment> "Computational agents (Fusion, Path Planning) acting as subjects within the traffic ontology." .
+# https://www.w3id.org/rcao#Algorithm
+<https://www.w3id.org/rcao#Algorithm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#Algorithm> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Agent> .
+<https://www.w3id.org/rcao#Algorithm> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3id.org/rcao#InformationSource> .
+<https://www.w3id.org/rcao#Algorithm> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the fusion logic agent that consumes input states and produces fused state [Source 373]." .
 # 
-# http://www.example.org/rcao#AutomatedDrivingSystem
-<http://www.example.org/rcao#AutomatedDrivingSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#AutomatedDrivingSystem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Object> .
-<http://www.example.org/rcao#AutomatedDrivingSystem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Agent> .
-<http://www.example.org/rcao#AutomatedDrivingSystem> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the ADS agent." .
+# https://www.w3id.org/rcao#AmbientCondition
+<https://www.w3id.org/rcao#AmbientCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#AmbientCondition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Context> .
+<https://www.w3id.org/rcao#AmbientCondition> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents environmental factors that affect driving including wather as rain, snow, fog, sun or lighting day, dark, gare or roadSurfaceCondition e.g., wet, icy,debris [Source 369]." .
 # 
-# http://www.example.org/rcao#AwarenessState
-<http://www.example.org/rcao#AwarenessState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#AwarenessState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
-<http://www.example.org/rcao#AwarenessState> <http://www.w3.org/2000/01/rdf-schema#comment> "A reification of the awareness relationship." .
+# https://www.w3id.org/rcao#AutomatedDrivingSystem
+<https://www.w3id.org/rcao#AutomatedDrivingSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#AutomatedDrivingSystem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Agent> .
+<https://www.w3id.org/rcao#AutomatedDrivingSystem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3id.org/rcao#TrafficParticipant> .
+<https://www.w3id.org/rcao#AutomatedDrivingSystem> <http://www.w3.org/2000/01/rdf-schema#comment> "Direct mapping of the primary machine agent, now aligned with the AGO taxonomy [Source 366]." .
 # 
-# http://www.example.org/rcao#BroadcastActivity
-<http://www.example.org/rcao#BroadcastActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#BroadcastActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
-<http://www.example.org/rcao#BroadcastActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "The process of encoding and transmitting awareness states via V2X." .
+# https://www.w3id.org/rcao#AwarenessState
+<https://www.w3id.org/rcao#AwarenessState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#AwarenessState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<https://www.w3id.org/rcao#AwarenessState> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the status of awareness relationship, describing a specific subject's awareness of a specific object at a point in time, characterized by resilience attributes. The central hub linking subjects (instances of ago:Object), objects (instances of ago:Object, ago:Action, etc.), and their context [Source 370]." .
 # 
-# http://www.example.org/rcao#Completeness
-<http://www.example.org/rcao#Completeness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#Completeness> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.org/rcao#ResilienceAttribute> .
-<http://www.example.org/rcao#Completeness> <http://www.w3.org/2000/01/rdf-schema#comment> "Measure of information completeness (e.g., Visibility/Occlusion Maps)." .
+# https://www.w3id.org/rcao#BroadcastActivity
+<https://www.w3id.org/rcao#BroadcastActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#BroadcastActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://www.w3id.org/rcao#BroadcastActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "The specific activity of encoding and transmitting awareness states via V2X messages (CPM, DENM) to other agents [Source 189]." .
 # 
-# http://www.example.org/rcao#ComprehensionAwareness
-<http://www.example.org/rcao#ComprehensionAwareness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#ComprehensionAwareness> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#ComprehensionAwareness> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.example.org/rcao#PerceptualAwareness> .
-<http://www.example.org/rcao#ComprehensionAwareness> <http://www.w3.org/2000/01/rdf-schema#comment> "Level 2 SA: Understanding of significance/meaning." .
+# https://www.w3id.org/rcao#Completeness
+<https://www.w3id.org/rcao#Completeness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#Completeness> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3id.org/rcao#ResilienceAttribute> .
+<https://www.w3id.org/rcao#Completeness> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the degree of completion of the information [Source 372]." .
 # 
-# http://www.example.org/rcao#ComprehensionProcess
-<http://www.example.org/rcao#ComprehensionProcess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#ComprehensionProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
-<http://www.example.org/rcao#ComprehensionProcess> <http://www.w3.org/2000/01/rdf-schema#comment> "The activity of synthesizing PerceptualAwareness into ComprehensionAwareness (Level 2 SA)." .
+# https://www.w3id.org/rcao#ComprehensionAwareness
+<https://www.w3id.org/rcao#ComprehensionAwareness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#ComprehensionAwareness> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#ComprehensionAwareness> <http://www.w3.org/2002/07/owl#disjointWith> <https://www.w3id.org/rcao#PerceptualAwareness> .
+<https://www.w3id.org/rcao#ComprehensionAwareness> <http://www.w3.org/2000/01/rdf-schema#comment> "Level 2: Represents a synthetised understanding of the meaning or significance of perceived information. An instance of this class is typically derived from one or more PerceptualAwareness states. For example, from perceiving a vehicle's position and its brake light status, a Level 2 state can be inferred: 'Subject S is aware that the vehicle ahead is braking hard, constituting a potential hazard' [Source 371]." .
 # 
-# http://www.example.org/rcao#Driver
-<http://www.example.org/rcao#Driver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#Driver> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Human> .
-<http://www.example.org/rcao#Driver> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the human operator whose awareness is critical." .
+# https://www.w3id.org/rcao#ComprehensionProcess
+<https://www.w3id.org/rcao#ComprehensionProcess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#ComprehensionProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://www.w3id.org/rcao#ComprehensionProcess> <http://www.w3.org/2000/01/rdf-schema#comment> "The activity of synthesizing multiple PerceptualAwareness states and Context to infer meaning or risk (ComprehensionAwareness). Represents the 'Understanding' phase [Source 57, 201]." .
 # 
-# http://www.example.org/rcao#FusionProcess
-<http://www.example.org/rcao#FusionProcess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#FusionProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
-<http://www.example.org/rcao#FusionProcess> <http://www.w3.org/2000/01/rdf-schema#comment> "A computational process that aggregates multiple AwarenessState instances into a single fused state." .
+# https://www.w3id.org/rcao#ConnectedVehicle
+<https://www.w3id.org/rcao#ConnectedVehicle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#ConnectedVehicle> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3id.org/rcao#TrafficParticipant> .
+<https://www.w3id.org/rcao#ConnectedVehicle> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents other vehicles equpped with V2x technology, whose state can be inferred from broadcast messages [Source 367]." .
 # 
-# http://www.example.org/rcao#HumanMachineInterface
-<http://www.example.org/rcao#HumanMachineInterface> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#HumanMachineInterface> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Object> .
-<http://www.example.org/rcao#HumanMachineInterface> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.org/rcao#InformationSource> .
-<http://www.example.org/rcao#HumanMachineInterface> <http://www.w3.org/2000/01/rdf-schema#comment> "A device (dashboard) that acts as an information source for human agents." .
+# https://www.w3id.org/rcao#Driver
+<https://www.w3id.org/rcao#Driver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#Driver> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Human> .
+<https://www.w3id.org/rcao#Driver> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the human operator whose awareness is critical for safe takovers [Source 367]." .
 # 
-# http://www.example.org/rcao#InformationSource
-<http://www.example.org/rcao#InformationSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#InformationSource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
-<http://www.example.org/rcao#InformationSource> <http://www.w3.org/2000/01/rdf-schema#comment> "Hardware or software generating data (Sensors, V2X, Algorithms)." .
+# https://www.w3id.org/rcao#FusionProcess
+<https://www.w3id.org/rcao#FusionProcess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#FusionProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://www.w3id.org/rcao#FusionProcess> <http://www.w3.org/2000/01/rdf-schema#comment> "A specific process that aggregates multiple AwarenessStates into a single intermediate fused state (PA_Fused) [Source 5, 80]." .
 # 
-# http://www.example.org/rcao#PerceptionProcess
-<http://www.example.org/rcao#PerceptionProcess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#PerceptionProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
-<http://www.example.org/rcao#PerceptionProcess> <http://www.w3.org/2000/01/rdf-schema#comment> "The activity of converting raw sensor data into PerceptualAwareness (Level 1 SA)." .
+# https://www.w3id.org/rcao#InformationSource
+<https://www.w3id.org/rcao#InformationSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#InformationSource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://www.w3id.org/rcao#InformationSource> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a source of data or information from which an AwarenessState is derived from different sources, enabling traceability and trust assessment. Represents the hardware or service generating data (e.g., sensor:Lidar, v2x:RSU_1) [Source 371-372]." .
 # 
-# http://www.example.org/rcao#PerceptualAwareness
-<http://www.example.org/rcao#PerceptualAwareness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#PerceptualAwareness> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#PerceptualAwareness> <http://www.w3.org/2000/01/rdf-schema#comment> "Level 1 SA: Direct perception of objects." .
+# https://www.w3id.org/rcao#InfrastructureElement
+<https://www.w3id.org/rcao#InfrastructureElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#InfrastructureElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Infrastructure> .
+<https://www.w3id.org/rcao#InfrastructureElement> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents intelligent roadside infrastructure such as Roadside Units (RSUs) and smart traffic signals via SPaT, MAP and CPM messages [Source 367]." .
 # 
-# http://www.example.org/rcao#PositionalAccuracy
-<http://www.example.org/rcao#PositionalAccuracy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#PositionalAccuracy> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.org/rcao#ResilienceAttribute> .
-<http://www.example.org/rcao#PositionalAccuracy> <http://www.w3.org/2000/01/rdf-schema#comment> "Quantifies uncertainty in location (e.g., Covariance Matrix)." .
+# https://www.w3id.org/rcao#ODD_MonitoringProcess
+<https://www.w3id.org/rcao#ODD_MonitoringProcess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#ODD_MonitoringProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://www.w3id.org/rcao#ODD_MonitoringProcess> <http://www.w3.org/2000/01/rdf-schema#comment> "The activity of monitoring the Operational Design Domain (ODD) limits to trigger fallbacks if boundaries are exceeded (Scenario 7) [Source 346]." .
 # 
-# http://www.example.org/rcao#ProjectionAwareness
-<http://www.example.org/rcao#ProjectionAwareness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#ProjectionAwareness> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.org/rcao#AwarenessState> .
-<http://www.example.org/rcao#ProjectionAwareness> <http://www.w3.org/2000/01/rdf-schema#comment> "Level 3 SA: Prediction of future states." .
+# https://www.w3id.org/rcao#PerceptionProcess
+<https://www.w3id.org/rcao#PerceptionProcess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#PerceptionProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://www.w3id.org/rcao#PerceptionProcess> <http://www.w3.org/2000/01/rdf-schema#comment> "The activity of converting raw sensor data (Lidar, Camera, Eyes) into a structured PerceptualAwareness state (Level 1 SA). Executed by an Agent [Source 56, 200]." .
 # 
-# http://www.example.org/rcao#ResilienceAttribute
-<http://www.example.org/rcao#ResilienceAttribute> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#ResilienceAttribute> <http://www.w3.org/2000/01/rdf-schema#comment> "Qualitative attributes describing robustness or trust." .
+# https://www.w3id.org/rcao#PerceptualAwareness
+<https://www.w3id.org/rcao#PerceptualAwareness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#PerceptualAwareness> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#PerceptualAwareness> <http://www.w3.org/2000/01/rdf-schema#comment> "Level 1: Represents the direct, uninterpreted perception of an object and its attributes. An instance of this class would assert, for example, 'Subject S is aware of Object O at position (x, y, z) with velocity V.' It is the semantic representation of processed sensor data [Source 370-371]." .
 # 
-# http://www.example.org/rcao#Risk
-<http://www.example.org/rcao#Risk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#Risk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Context> .
-<http://www.example.org/rcao#Risk> <http://www.w3.org/2000/01/rdf-schema#comment> "A formalized assessment of potential danger (Context)." .
+# https://www.w3id.org/rcao#PositionalAccuracy
+<https://www.w3id.org/rcao#PositionalAccuracy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#PositionalAccuracy> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3id.org/rcao#ResilienceAttribute> .
+<https://www.w3id.org/rcao#PositionalAccuracy> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the uncertain in an object´s location as covariance matrix [Source 372]." .
 # 
-# http://www.example.org/rcao#RoadSideUnit
-<http://www.example.org/rcao#RoadSideUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#RoadSideUnit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Object> .
-<http://www.example.org/rcao#RoadSideUnit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Agent> .
-<http://www.example.org/rcao#RoadSideUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "Intelligent infrastructure capable of perception and V2X communication (RSU)." .
+# https://www.w3id.org/rcao#ProjectionAwareness
+<https://www.w3id.org/rcao#ProjectionAwareness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#ProjectionAwareness> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3id.org/rcao#AwarenessState> .
+<https://www.w3id.org/rcao#ProjectionAwareness> <http://www.w3.org/2000/01/rdf-schema#comment> "Level 3:Represents a prediction about the future state of an object or situation derived from Level 2. Subject S is aware that the vehicle ahead is predicted to come to a complete stop in 1.5 seconds at position (x', y', z') [Source 371]." .
 # 
-# http://www.example.org/rcao#TemporalFreshness
-<http://www.example.org/rcao#TemporalFreshness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#TemporalFreshness> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.org/rcao#ResilienceAttribute> .
-<http://www.example.org/rcao#TemporalFreshness> <http://www.w3.org/2000/01/rdf-schema#comment> "Captures data age/latency to prevent usage of stale information." .
+# https://www.w3id.org/rcao#ResilienceAttribute
+<https://www.w3id.org/rcao#ResilienceAttribute> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#ResilienceAttribute> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<https://www.w3id.org/rcao#ResilienceAttribute> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a quantificable or qualitative attribute describing the robustness, quality, or trustworthiness of an AwarnessState or InformationSoruce [Source 372]." .
 # 
-# http://www.example.org/rcao#V2XMessage
-<http://www.example.org/rcao#V2XMessage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#V2XMessage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
-<http://www.example.org/rcao#V2XMessage> <http://www.w3.org/2000/01/rdf-schema#comment> "A digital artifact transmitted between agents containing awareness states (e.g., ETSI CPM)." .
+# https://www.w3id.org/rcao#Risk
+<https://www.w3id.org/rcao#Risk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#Risk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Context> .
+<https://www.w3id.org/rcao#Risk> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a formalised assessment of potential dangerous [Source 369]." .
 # 
-# http://www.example.org/rcao#VirtualSensorAlgorithm
-<http://www.example.org/rcao#VirtualSensorAlgorithm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.example.org/rcao#VirtualSensorAlgorithm> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.org/rcao#Algorithm> .
-<http://www.example.org/rcao#VirtualSensorAlgorithm> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.org/rcao#InformationSource> .
-<http://www.example.org/rcao#VirtualSensorAlgorithm> <http://www.w3.org/2000/01/rdf-schema#comment> "An algorithm that acts as a traceable source of information (Virtual Sensor), effectively bridging prov:Agent and prov:Entity." .
+# https://www.w3id.org/rcao#RoadSideUnit
+<https://www.w3id.org/rcao#RoadSideUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#RoadSideUnit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Agent> .
+<https://www.w3id.org/rcao#RoadSideUnit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3id.org/rcao#InfrastructureElement> .
+<https://www.w3id.org/rcao#RoadSideUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents intelligent roadside infrastructure capable of V2X communication [Source 367]." .
+# 
+# https://www.w3id.org/rcao#TemporalFreshness
+<https://www.w3id.org/rcao#TemporalFreshness> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#TemporalFreshness> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3id.org/rcao#ResilienceAttribute> .
+<https://www.w3id.org/rcao#TemporalFreshness> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the age of the information [Source 372]." .
+# 
+# https://www.w3id.org/rcao#TrafficParticipant
+<https://www.w3id.org/rcao#TrafficParticipant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#TrafficParticipant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Object> .
+<https://www.w3id.org/rcao#TrafficParticipant> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents anything tangible in the environment [Source 366]." .
+# 
+# https://www.w3id.org/rcao#TrustScore
+<https://www.w3id.org/rcao#TrustScore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#TrustScore> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3id.org/rcao#ResilienceAttribute> .
+<https://www.w3id.org/rcao#TrustScore> <http://www.w3.org/2000/01/rdf-schema#comment> "Represent the degree of confidence and trust of the information [Source 372]." .
+# 
+# https://www.w3id.org/rcao#V2XMessage
+<https://www.w3id.org/rcao#V2XMessage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#V2XMessage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3id.org/rcao#InformationSource> .
+<https://www.w3id.org/rcao#V2XMessage> <http://www.w3.org/2000/01/rdf-schema#comment> "Represent the data package intelligent road infrastructure emits [Source 367]." .
+# 
+# https://www.w3id.org/rcao#VulnerableRoadUser
+<https://www.w3id.org/rcao#VulnerableRoadUser> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3id.org/rcao#VulnerableRoadUser> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vcd.vicomtech.org/ontology/automotive#Human> .
+<https://www.w3id.org/rcao#VulnerableRoadUser> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents any single real-world entitity as pederastian, cyclist, and other non-motorized road users [Source 367]." .
 # 
 # Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
