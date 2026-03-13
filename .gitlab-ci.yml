@@ -2,8 +2,8 @@ pages:
   stage: deploy
   script:
     - mkdir -p public
-    - cp -r docs/widoco-docs/* public/
-    - cp public/index-en.html public/index.html
+    - cp -r docs/widoco-docs public/widoco
+    - cp public/widoco/index-en.html public/widoco/index.html
     - mkdir -p public/ontospy
     - cp -r docs/ontospy-docs/* public/ontospy/
   artifacts:
