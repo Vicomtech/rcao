@@ -1,1 +1,1 @@
-# Reslient Collective Awareness Ontology (RCAO)
+# Resilient Collective Awareness Ontology (RCAO)
