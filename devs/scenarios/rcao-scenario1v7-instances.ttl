@@ -1,0 +1,86 @@
+@prefix : <https://www.w3id.org/rcao-scenario1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ago: <http://vcd.vicomtech.org/ontology/automotive#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rcao: <https://www.w3id.org/rcao#> .
+@base <https://www.w3id.org/rcao-scenario1> .
+
+<https://www.w3id.org/rcao-scenario1> rdf:type owl:Ontology ;
+    owl:imports <https://www.w3id.org/rcao> ;
+    rdfs:comment "Scenario 1: Meta-Awareness (Theory of Mind in ADS)" .
+
+
+# SCENARIO CONTT: 
+# Scenario 1 Variant (Decoupled Agents): 
+# ADS1 performs Perception and Action. 
+# RCA1 (a sub-component of ADS1) performs Comprehension.
+#################################################################
+### 1. AGENTS, MEREOLOGY & TOPOLOGY
+#################################################################
+:EgoVehicle1 rdf:type rcao:ConnectedVehicle ;
+    ago:hasPart :ADS1 , :LIDAR1 .
+
+:ADS1 rdf:type rcao:AutomatedDrivingSystem ;
+    ago:hasPart :RCA1 .
+
+:RCA1 rdf:type rcao:Algorithm .
+
+:LIDAR1 rdf:type rcao:InformationSource .
+
+:Pedestrian1 rdf:type rcao:VulnerableRoadUser .
+
+#################################################################
+### 2. RESILIENCE ATTRIBUTES
+#################################################################
+:LIDAR1_Visibility_Map rdf:type rcao:ResilienceAttribute .
+
+:LIDAR1 rcao:hasSourceResilience :LIDAR1_Visibility_Map .
+
+#################################################################
+### 3. INITIAL SITUATION
+#################################################################
+:DrivingAutonomously1 rdf:type ago:Action .
+
+:ADS1 rcao:runsProcess :DrivingAutonomously1 .
+
+#################################################################
+### 4. PERCEPTION PHASE (LEVEL 1)
+#################################################################
+:PerceptionProcess1 rdf:type rcao:PerceptionProcess ;
+    prov:used :LIDAR1 .
+
+:ADS1 rcao:runsProcess :PerceptionProcess1 .
+
+:PA1_ADS1_of_P1 rdf:type rcao:PerceptualAwareness ;
+    rcao:hasSubject :ADS1 ;
+    rcao:hasObject :Pedestrian1 ;
+    rcao:hasSource :LIDAR1 ;
+    rcao:wasComputedBy :PerceptionProcess1 ;
+    rcao:hasConfidence "0.92"^^xsd:float .
+
+#################################################################
+### 5. COMPREHENSION PHASE (LEVEL 2)
+#################################################################
+:Risk_Collision_Pedestrian1 rdf:type rcao:Risk .
+
+:ComprehensionProcess1 rdf:type rcao:ComprehensionProcess ;
+    rcao:fusesState :PA1_ADS1_of_P1 .
+
+:RCA1 rcao:runsProcess :ComprehensionProcess1 .
+
+:CA1_RCA1_of_RCP1 rdf:type rcao:ComprehensionAwareness ;
+    rcao:hasSubject :RCA1 ;
+    rcao:hasObject :Risk_Collision_Pedestrian1 ;
+    rcao:derivedFrom :PA1_ADS1_of_P1 ;
+    rcao:wasComputedBy :ComprehensionProcess1 .
+
+#################################################################
+### 6. ACTION PHASE (CAUSAL CLOSURE)
+#################################################################
+:AdaptSpeed1 rdf:type ago:Action ;
+    rcao:justifiedBy :CA1_RCA1_of_RCP1 .
+
+:ADS1 rcao:runsProcess :AdaptSpeed1 .

@@ -1,0 +1,103 @@
+@prefix : <https://www.w3id.org/rcao-scenario4.1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ago: <http://vcd.vicomtech.org/ontology/automotive#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rcao: <https://www.w3id.org/rcao#> .
+@base <https://www.w3id.org/rcao-scenario4.1> .
+
+<https://www.w3id.org/rcao-scenario4.1> rdf:type owl:Ontology ;
+    owl:imports <https://www.w3id.org/rcao> ;
+    rdfs:comment "Scenario 4.1: Human-Machine Interface (HMI)" .
+
+#################################################################
+#    PART 1: THE ELEMENTS & MEREOTOPOLOGY
+#################################################################
+### 1.1 The Vehicle and Machine Components [2, 3]
+:EgoVehicle1 rdf:type rcao:ConnectedVehicle ;
+    rdfs:label "The Ego Vehicle" ;
+    ago:hasPart :ADS1 , :HMI1 , :FrontCamera1 .
+
+:ADS1 rdf:type rcao:AutomatedDrivingSystem , prov:Agent .
+
+:HMI1 rdf:type rcao:InformationSource ;
+    rdfs:label "Dashboard Display (HMI)" .
+
+:FrontCamera1 rdf:type rcao:InformationSource .
+
+### 1.2 The Human Agent and Biological Components [2, 3]
+:HumanDriver1 rdf:type ago:Human , prov:Agent ;
+    rdfs:label "Driver observing HMI" ;
+    # Mereology: Structural components
+    ago:hasPart :Brain1 , :Eyes1 ;
+    # Topology: Spatial location
+    ago:isIn :EgoVehicle1 .
+
+:Brain1 rdf:type rcao:Algorithm ;
+    rdfs:label "Cognitive Processing Unit" .
+
+:Eyes1 rdf:type rcao:InformationSource ;
+    rdfs:label "Biological Sensors" .
+
+### 1.3 The Environment [3]
+:TrafficSign_80kph rdf:type ago:TrafficSign ;
+    rdfs:label "Speed Limit Sign (80 kph)" .
+
+:SpeedLimit_80_Active rdf:type ago:Context ;
+    rdfs:label "Regulatory Context: 80 kph Zone" .
+
+#################################################################
+#    PART 2: THE INFORMATION FLOW
+#################################################################
+
+# --- STEP A: Machine Perception (Vehicle sees the sign) [4] ---
+
+:PerceptionProcess_ADS1 rdf:type rcao:PerceptionProcess  ;
+    prov:used :FrontCamera1 .
+
+:ADS1 rcao:runsProcess :PerceptionProcess_ADS1 .
+
+:PA1_ADS1_of_TS1 rdf:type rcao:PerceptualAwareness ;
+    rcao:hasSubject :ADS1 ;
+    rcao:hasObject :TrafficSign_80kph ;
+    rcao:hasSource :FrontCamera1 ;
+    prov:wasGeneratedBy :PerceptionProcess_ADS1 ;
+    rcao:hasConfidence "0.99"^^xsd:float .
+
+# --- STEP B: Machine-to-Human Communication [4, 5] ---
+
+:DisplayOnHMI1 rdf:type ago:Action ;
+    rdfs:label "Display 80 kph icon on Dashboard" ;
+    # XAI: The action of displaying is justified by the ADS's awareness
+    rcao:justifiedBy :PA1_ADS1_of_TS1 .
+
+:ADS1 rcao:runsProcess :DisplayOnHMI1 .
+
+# --- STEP C: Human Perception (Driver sees the HMI) [5, 6] ---
+
+:PerceptionProcess_Driver1 rdf:type prov:PerceptionProcess ;
+    prov:used :Eyes1 , :HMI1 .
+
+:HumanDriver1 rcao:runsProcess :PerceptionProcess_Driver1 .
+
+:PA2_Driver1_of_TS1 rdf:type rcao:PerceptualAwareness ;
+    rcao:hasSubject :HumanDriver1 ;
+    rcao:hasObject :TrafficSign_80kph ;
+    rcao:hasSource :HMI1 ; # The HMI acts as the source for the human
+    prov:wasGeneratedBy :PerceptionProcess_Driver1 ;
+    rcao:hasConfidence "1.0"^^xsd:float .
+
+# --- STEP D: Human Comprehension (Driver understands meaning) [7, 8] ---
+
+:ComprehensionProcess_Driver1 rdf:type prov:ComprehensionProcess .
+
+:Brain1 rcao:runsProcess :ComprehensionProcess_Driver1 .
+
+:CA2_Driver1_of_SL1 rdf:type rcao:ComprehensionAwareness ;
+    rcao:hasSubject :Brain1 ;
+    rcao:hasObject :SpeedLimit_80_Active ;
+    rcao:derivedFrom :PA2_Driver1_of_TS1 ;
+    prov:wasGeneratedBy :ComprehensionProcess_Driver1 ;
+    rdfs:comment "I saw the '80' sign on the dashboard; the speed limit is now 80 kph." .

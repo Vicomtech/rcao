@@ -1,4 +1,4 @@
-# Resilience Collective Awarness Ontology (RCAO)
+# Resilient Collective Awarness Ontology (RCAO)
 
 RCAO offers a minimal set of classes and relations to guide the representation of knowledge in RDF/OWL.
 
@@ -9,7 +9,7 @@ Here's the RCAO Postcard showing all the classes and relations (solid line indic
 
 ## Availability
 The ontology is available in a number of formats:
-* [Turtle](./versions/rcao-v0.6.ttl)
+* [Turtle](./versions/latest/rcao-v0.7.ttl)
 * [RDF/XML]()
 * [JSON-LD]()
 * [NTriples]()

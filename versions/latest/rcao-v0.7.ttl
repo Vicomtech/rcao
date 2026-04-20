@@ -17,25 +17,25 @@
     
     # 1. Creadores (IRIs puros)
     dc:creator "Carlos Utrilla Guerrero, Vicomtech (0000-0002-9994-1462)",
-                "Nerea, Vicomtech (0000-0001-9879-0992)",
-                "Marcos Nieto-Doncel (0000-0002-7853-6708)";
+                "Nerea Aranjuelo Ansa, Vicomtech (0000-0001-9879-0992)",
+                "Marcos Nieto Doncel (0000-0002-7853-6708)";
                                               
     # 2. NUEVO: Contribuidores (Puede usar literales de texto o IRIs ORCID si lo prefiere)
     dc:contributor "New collaborator ()",
                     "other ()";                                                  
     dc:title "Resilience Collective Awareness Ontology" ;
-    dc:created "2026-03-25T12:00:00"^^xsd:dateTime ;
-    dc:issued "2025-03-25T12:00:00"^^xsd:dateTime ;
+    dc:created "2026-04-25T12:00:00"^^xsd:dateTime ;
+    dc:issued "2026-04-25T12:00:00"^^xsd:dateTime ;
     dc:license "https://creativecommons.org/licenses/by/4.0/" ;
-    dc:publisher "https://www.vicomtech.org/en" ;
+    dc:publisher "https://www.vicomtech.org/en, (https://ror.org/0023sah13)" ;
     vann:preferredNamespacePrefix "rcao" ;    
     # 3. CORRECCIÓN VANN: Añadimos www. y el # al final para el parser de Ontospy
     vann:preferredNamespaceUri "https://www.w3id.org/rcao#" ;
     
     schema:citation "Cite this ontology as: Utrilla Guerrero, C., Aranjuelo Ansa, N., and Nieto Doncel, M., (2025). Resilience Collective Awareness Ontology 0.1.0. https://w3id.org/rcao/0.1.0" ;
-    rdfs:comment """The RCAO aims to provide a data and view model to manage data encoded in AV which are also known as fishbone or cause and effect AV (AV)."""@en ;
+    rdfs:comment """The RCAO aims to provide a common knowledge model of the resilient collective awareness on automated driving domain."""@en ;
     owl:versionInfo "0.1.0" ;
-    schema:logo "https://raw.githubusercontent.com/SolarCheme.png" ;
+    schema:logo "https://raw.githubusercontent.com/X.png" ;
     owl:imports <http://vcd.vicomtech.org/ontology/automotive#> , 
                 <http://www.w3.org/ns/prov-o#> .
 
@@ -143,32 +143,32 @@ schema:logo rdf:type owl:AnnotationProperty .
 ### TOP: Traffic_Participants
 rcao:TrafficParticipant rdf:type owl:Class ;
     rdfs:subClassOf ago:Object ;
-    rdfs:comment "Represents anything tangible in the environment [Source 366]." .
+    rdfs:comment "Represents anything tangible in the environment." .
 
 ### MID: AutomatedDrivingSystem
 rcao:AutomatedDrivingSystem rdf:type owl:Class ;
     rdfs:subClassOf rcao:TrafficParticipant , prov:Agent ;
-    rdfs:comment "Direct mapping of the primary machine agent, now aligned with the AGO taxonomy [Source 366]." .
+    rdfs:comment "Represents the Automated Driving System itself." .
 
 ### MID: HumanAgent (Implemented as ago:Human)
 ago:Human rdf:type owl:Class ;
     rdfs:subClassOf rcao:TrafficParticipant , prov:Agent ;
-    rdfs:comment "Represents the human occupant of a vehicle [Source 367]." .
+    rdfs:comment "Represents the human occupant of a vehicle." .
 
 ### MID: ConnectedVehicle
 rcao:ConnectedVehicle rdf:type owl:Class ;
     rdfs:subClassOf rcao:TrafficParticipant ;
-    rdfs:comment "Represents other vehicles equpped with V2x technology, whose state can be inferred from broadcast messages [Source 367]." .
+    rdfs:comment "Represents other vehicles equpped with V2x technology, whose state can be inferred from broadcast messages." .
 
 ### BOTTOM: Driver
 rcao:Driver rdf:type owl:Class ;
     rdfs:subClassOf ago:Human ;
-    rdfs:comment "Represents the human operator whose awareness is critical for safe takovers [Source 367]." .
+    rdfs:comment "Represents the human operator whose awareness is critical for safe takovers." .
 
 ### BOTTOM: VulnerableRoadUser
 rcao:VulnerableRoadUser rdf:type owl:Class ;
     rdfs:subClassOf ago:Human ;
-    rdfs:comment "Represents any single real-world entitity as pederastian, cyclist, and other non-motorized road users [Source 367]." .
+    rdfs:comment "Represents any single real-world entitity as pederastian, cyclist, and other non-motorized road users." .
 
 #################################################################
 #    HIERARCHY 2: INFRASTRUCTURE (Where)
@@ -177,59 +177,59 @@ rcao:VulnerableRoadUser rdf:type owl:Class ;
 ### TOP: Infrastructure
 ago:Infrastructure rdf:type owl:Class ;
     rdfs:subClassOf ago:Object ;
-    rdfs:comment "Represents the static and intelligent elements of the road environment [Source 367]." .
+    rdfs:comment "Represents the static and intelligent elements of the road environment." .
 
 ### MID: InfrastructureElement (Intelligent)
 rcao:InfrastructureElement rdf:type owl:Class ;
     rdfs:subClassOf ago:Infrastructure ;
-    rdfs:comment "Represents intelligent roadside infrastructure such as Roadside Units (RSUs) and smart traffic signals via SPaT, MAP and CPM messages [Source 367]." .
+    rdfs:comment "Represents intelligent roadside infrastructure such as Roadside Units (RSUs) and smart traffic signals via SPaT, MAP and CPM messages." .
 
 ### MID: TrafficControlElement (Regulatory)
 ago:TrafficControlElement rdf:type owl:Class ;
     rdfs:subClassOf ago:Infrastructure ;
-    rdfs:comment "Represent regulatory objects like TrafficSign, TrafficSignal and RoadMarking [Source 368]." .
+    rdfs:comment "Represents regulatory objects like TrafficSign, TrafficSignal and RoadMarking." .
 
 ### BOTTOM: Specific Elements
 rcao:RoadSideUnit rdf:type owl:Class ;
     rdfs:subClassOf rcao:InfrastructureElement , prov:Agent ;
-    rdfs:comment "Represents intelligent roadside infrastructure capable of V2X communication [Source 367]." .
+    rdfs:comment "Represents intelligent roadside infrastructure capable of V2X communication." .
 
 ago:TrafficSign rdf:type owl:Class ;
     rdfs:subClassOf ago:TrafficControlElement ;
-    rdfs:comment "Vertical signage regulating traffic [Source 368]." .
+    rdfs:comment "Represents static displays that provide rules, warnings, or directions, while traffic signals are illuminated devices that control traffic flow using colored lights." .
 
 ago:TrafficSignal rdf:type owl:Class ;
     rdfs:subClassOf ago:TrafficControlElement ;
-    rdfs:comment "Active signaling devices [Source 368]." .
+    rdfs:comment " Represent active and electronic devices that control vehicle and pedestrian movement at intersections, using colored lights to indicate when to stop or go." .
 
 ago:RoadMarking rdf:type owl:Class ;
     rdfs:subClassOf ago:TrafficControlElement ;
-    rdfs:comment "Painted indications on the road surface [Source 368]." .
+    rdfs:comment "Represents the painted indications on the road surface." .
 
 #################################################################
-#    HIERARCHY 3: EPISTEMIC STATES (What)
+#    HIERARCHY 3: EPISTEMIC or AWARENESS STATES (What)
 #################################################################
 
 ### TOP: AwarenessState
 rcao:AwarenessState rdf:type owl:Class ;
     rdfs:subClassOf owl:Thing ;
-    rdfs:comment "Represents the status of awareness relationship, describing a specific subject's awareness of a specific object at a point in time, characterized by resilience attributes. The central hub linking subjects (instances of ago:Object), objects (instances of ago:Object, ago:Action, etc.), and their context [Source 370]." .
+    rdfs:comment "Represents the status of awareness relationship, describing a specific subject's awareness of a specific object at a point in time, characterized by resilience attributes." .
 
 ### MID: PerceptualAwareness (Level 1)
 rcao:PerceptualAwareness rdf:type owl:Class ;
     rdfs:subClassOf rcao:AwarenessState ;
     owl:disjointWith rcao:ComprehensionAwareness ;
-    rdfs:comment "Level 1: Represents the direct, uninterpreted perception of an object and its attributes. An instance of this class would assert, for example, 'Subject S is aware of Object O at position (x, y, z) with velocity V.' It is the semantic representation of processed sensor data [Source 370-371]." .
+    rdfs:comment "Level 1: Represents the direct, uninterpreted perception of an object and its attributes. An instance of this class would assert, for example, 'Subject S is aware of Object O at position (x, y, z) with velocity V." .
 
 ### MID: ComprehensionAwareness (Level 2)
 rcao:ComprehensionAwareness rdf:type owl:Class ;
     rdfs:subClassOf rcao:AwarenessState ;
-    rdfs:comment "Level 2: Represents a synthetised understanding of the meaning or significance of perceived information. An instance of this class is typically derived from one or more PerceptualAwareness states. For example, from perceiving a vehicle's position and its brake light status, a Level 2 state can be inferred: 'Subject S is aware that the vehicle ahead is braking hard, constituting a potential hazard' [Source 371]." .
+    rdfs:comment "Level 2: Represents a synthetised understanding of the meaning or significance of perceived information. An instance of this class is typically derived from one or more PerceptualAwareness states. For example, from perceiving a vehicle's position and its brake light status, a Level 2 state can be inferred: 'Subject S is aware that the vehicle ahead is braking hard, constituting a potential hazard'." .
 
 ### MID: ProjectionAwareness (Level 3)
 rcao:ProjectionAwareness rdf:type owl:Class ;
     rdfs:subClassOf rcao:AwarenessState ;
-    rdfs:comment "Level 3:Represents a prediction about the future state of an object or situation derived from Level 2. Subject S is aware that the vehicle ahead is predicted to come to a complete stop in 1.5 seconds at position (x', y', z') [Source 371]." .
+    rdfs:comment "Level 3:Represents a prediction about the future state of an object or situation derived from Level 2. Subject S is aware that the vehicle ahead is predicted to come to a complete stop in 1.5 seconds at position (x', y', z')." .
 
 #################################################################
 #    HIERARCHY 4: SOURCES & ALGORITHMS (How)
@@ -238,16 +238,16 @@ rcao:ProjectionAwareness rdf:type owl:Class ;
 ### TOP: InformationSource
 rcao:InformationSource rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ; 
-    rdfs:comment "Represents a source of data or information from which an AwarenessState is derived from different sources, enabling traceability and trust assessment. Represents the hardware or service generating data (e.g., sensor:Lidar, v2x:RSU_1) [Source 371-372]." .
+    rdfs:comment "Represents a source of data or information from which an AwarenessState is derived from different sources, enabling traceability and trust assessment. Represents the hardware or service generating data (e.g., sensor:Lidar, v2x:RSU_1)." .
 
 ### TOP: Algorithm (Logic Agent)
 rcao:Algorithm rdf:type owl:Class ;
     rdfs:subClassOf prov:Agent , rcao:InformationSource ; 
-    rdfs:comment "Represents the fusion logic agent that consumes input states and produces fused state [Source 373]." .
+    rdfs:comment "Represents the fusion logic agent that consumes input states and produces fused state." .
 
 rcao:V2XMessage rdf:type owl:Class ;
     rdfs:subClassOf rcao:InformationSource ;
-    rdfs:comment "Represent the data package intelligent road infrastructure emits [Source 367]." .
+    rdfs:comment "Represent the data package intelligent road infrastructure emits." .
 
 #################################################################
 #    HIERARCHY 5: RESILIENCE (Trust)
@@ -256,24 +256,29 @@ rcao:V2XMessage rdf:type owl:Class ;
 ### TOP: ResilienceAttribute
 rcao:ResilienceAttribute rdf:type owl:Class ;
     rdfs:subClassOf owl:Thing ;
-    rdfs:comment "Represents a quantificable or qualitative attribute describing the robustness, quality, or trustworthiness of an AwarnessState or InformationSoruce [Source 372]." .
+    rdfs:comment "Represents a quantificable or qualitative attribute describing the robustness, quality, or trustworthiness of an AwarnessState or InformationSoruce." .
 
 ### MID: Specific Attributes
 rcao:TrustScore rdf:type owl:Class ;
     rdfs:subClassOf rcao:ResilienceAttribute ;
-    rdfs:comment "Represent the degree of confidence and trust of the information [Source 372]." .
+    rdfs:comment "Represents the degree of confidence and trust of the information." .
 
 rcao:Completeness rdf:type owl:Class ;
     rdfs:subClassOf rcao:ResilienceAttribute ;
-    rdfs:comment "Represents the degree of completion of the information [Source 372]." .
+    rdfs:comment "Represents the degree of completion of the information." .
 
 rcao:PositionalAccuracy rdf:type owl:Class ;
     rdfs:subClassOf rcao:ResilienceAttribute ;
-    rdfs:comment "Represents the uncertain in an object´s location as covariance matrix [Source 372]." .
+    rdfs:comment "Represents the uncertain in an object´s location as covariance matrix." .
 
 rcao:TemporalFreshness rdf:type owl:Class ;
     rdfs:subClassOf rcao:ResilienceAttribute ;
-    rdfs:comment "Represents the age of the information [Source 372]." .
+    rdfs:comment "Represents the age of the information." .
+
+rcao:GenderBias rdf:type owl:Class ;
+                rdfs:subClassOf rcao:ResilienceAttribute ;
+                rdfs:comment "Represents the bias with regards to gender of a model. A model is gender biased if the model's performance and/or output is biased against a faction of population based on their gender." .
+
 
 #################################################################
 #    HIERARCHY 6: ACTIONS & CONTEXT
@@ -296,15 +301,15 @@ rcao:runsProcess rdf:type owl:ObjectProperty ;
 ### Context: Risk
 rcao:Risk rdf:type owl:Class ;
     rdfs:subClassOf ago:Context ;
-    rdfs:comment "Represents a formalised assessment of potential dangerous [Source 369]." .
+    rdfs:comment "Represents a formalised assessment of potential dangerous." .
 
 ### Context: AmbientCondition
 rcao:AmbientCondition rdf:type owl:Class ;
     rdfs:subClassOf ago:Context ;
-    rdfs:comment "Represents environmental factors that affect driving including wather as rain, snow, fog, sun or lighting day, dark, gare or roadSurfaceCondition e.g., wet, icy,debris [Source 369]." .
+    rdfs:comment "Represents environmental factors that affect driving including wather as rain, snow, fog, sun or lighting day, dark, gare or roadSurfaceCondition e.g., wet, icy,debris." .
 
 #################################################################
-#    2. RELATIONS (From relations.csv)
+#    2. RELATIONS (from relations sheet)
 #################################################################
 
 ### 2.1 Awareness Relationships
@@ -320,7 +325,7 @@ rcao:hasAwarenessState rdf:type owl:ObjectProperty ;
 rcao:hasSubject rdf:type owl:ObjectProperty ;
     rdfs:domain rcao:AwarenessState ;
     rdfs:range ago:Object ; # "any subject with awareness capacity"
-    rdfs:comment "Identify the Subject (e.g., any instance of prov:Agent that is linked to an rcao:AwarenessState via the rcao:hasSubject property). Connects who is aware of what." .
+    rdfs:comment "Connects who is aware of what. Identify the Subject (e.g., any instance of prov:Agent that is linked to an rcao:AwarenessState via the rcao:hasSubject property)." .
 
 # [Source 1] Links awareness state to the entity it is about.
 # Groups inputs for fusion queries (isAwarenessOf Pedestrian_456).
@@ -335,7 +340,7 @@ rcao:hasObject rdf:type owl:ObjectProperty ;
     # ACTUALIZACION: Rango ampliado para soportar Meta-Consciencia
     rdfs:range [ rdf:type owl:Class ;
                  owl:unionOf ( ago:Object ago:Action ago:Context rcao:AwarenessState ) ] ;
-    rdfs:comment "Connects what is being aware of. Updated to support Meta-Awareness (Awareness of Awareness)." .
+    rdfs:comment "Connects what is being aware of." .
 
 # [Source 3] Establishes the linking of the levels of awareness.
 rcao:informs rdf:type owl:ObjectProperty ;
@@ -347,7 +352,7 @@ rcao:informs rdf:type owl:ObjectProperty ;
 
 ### http://www.example.org/rcao#derivedFrom
 rcao:derivedFrom rdf:type owl:ObjectProperty ;
-    # DOCTORAL CORRECTION: Remove 'rdfs:subPropertyOf prov:wasDerivedFrom ;
+    # CORRECTION: Remove 'rdfs:subPropertyOf prov:wasDerivedFrom ;
     rdfs:domain rcao:AwarenessState ;
     rdfs:range [ rdf:type owl:Class ;
                  owl:unionOf ( rcao:InformationSource rcao:AwarenessState )
@@ -369,7 +374,7 @@ rcao:hasOutcome rdf:type owl:ObjectProperty ;
 rcao:wasComputedBy rdf:type owl:ObjectProperty ;
     rdfs:domain rcao:AwarenessState ;
     rdfs:range prov:Activity ;
-    rdfs:comment "Custom XAI provenance property. Links a computed AwarenessState to the specific computational Activity (e.g., PerceptionProcess, FusionProcess) that generated it, bypassing strict PROV-O Entity coercion." .
+    rdfs:comment "A customized provenance property. Links a computed AwarenessState to the specific computational Activity (e.g., PerceptionProcess, FusionProcess) that generated it, bypassing strict PROV-O Entity coercion." .
 
 ### 2.3 Action Relationships
 
@@ -409,6 +414,13 @@ rcao:hasTrustScore rdf:type owl:DatatypeProperty ;
 rcao:hasSourceResilience rdf:type owl:ObjectProperty ;
     rdfs:domain rcao:InformationSource ;
     rdfs:range rcao:ResilienceAttribute .
+
+# [Source 20] Links to gender bias score 
+rcao:hasGenderBiasScore rdf:type owl:DatatypeProperty ;
+                        rdfs:domain rcao:GenderBias ;
+                        rdfs:range xsd:float ;
+                        rdfs:comment "Quantifiable metric representing the severity of the gender bias." .
+
 
 #################################################################
 #    3. DATA PROPERTIES (Connected Vehicle & Others)
@@ -475,27 +487,27 @@ ago:isIn rdf:type owl:ObjectProperty ;
 ### MID: PerceptionProcess (Level 1 Generation)
 rcao:PerceptionProcess rdf:type owl:Class ;
     rdfs:subClassOf prov:Activity ;
-    rdfs:comment "The activity of converting raw sensor data (Lidar, Camera, Eyes) into a structured PerceptualAwareness state (Level 1 SA). Executed by an Agent [Source 56, 200]." .
+    rdfs:comment "The activity of converting raw sensor data (Lidar, Camera, Eyes) into a structured PerceptualAwareness state (Level 1 SA). Executed by an Agent." .
 
 ### MID: ComprehensionProcess (Level 2 Generation)
 rcao:ComprehensionProcess rdf:type owl:Class ;
     rdfs:subClassOf prov:Activity ;
-    rdfs:comment "The activity of synthesizing multiple PerceptualAwareness states and Context to infer meaning or risk (ComprehensionAwareness). Represents the 'Understanding' phase [Source 57, 201]." .
+    rdfs:comment "The activity of synthesizing multiple PerceptualAwareness states and Context to infer meaning or risk (ComprehensionAwareness). Represents the 'Understanding' phase." .
 
 ### MID: BroadcastActivity (V2X Transmission)
 rcao:BroadcastActivity rdf:type owl:Class ;
     rdfs:subClassOf prov:Activity ;
-    rdfs:comment "The specific activity of encoding and transmitting awareness states via V2X messages (CPM, DENM) to other agents [Source 189]." .
+    rdfs:comment "The specific activity of encoding and transmitting awareness states via V2X messages (CPM, DENM) to other agents." .
 
 ### MID: ODD_MonitoringProcess (Resilience/Safety)
 rcao:ODD_MonitoringProcess rdf:type owl:Class ;
     rdfs:subClassOf prov:Activity ;
-    rdfs:comment "The activity of monitoring the Operational Design Domain (ODD) limits to trigger fallbacks if boundaries are exceeded (Scenario 7) [Source 346]." .
+    rdfs:comment "The activity of monitoring the Operational Design Domain (ODD) limits to trigger fallbacks if boundaries are exceeded (Scenario 7)." .
 
 ### NEW CLASS: Fusion Process (For Step 1 aggregation)
 rcao:FusionProcess rdf:type owl:Class ;
     rdfs:subClassOf prov:Activity ;
-    rdfs:comment "A specific process that aggregates multiple AwarenessStates into a single intermediate fused state (PA_Fused) [Source 5, 80]." .
+    rdfs:comment "A specific process that aggregates multiple AwarenessStates into a single intermediate fused state (PA_Fused)." .
 
 ### NEW PROPERTY: Fusion Strategy (For Step 2 output)
 rcao:hasFusionStrategy rdf:type owl:DatatypeProperty ;
@@ -511,11 +523,10 @@ rcao:fusesState rdf:type owl:ObjectProperty ;
     rdfs:comment "Explicitly links the process to the specific intermediate states it consumed. Identifies specific awareness states consumed during a fusion or comprehension process." .
 
 ### NEW PROPERTY: V2X Containment
-# Replaces 'encapsulates' per user preference.
 # Aligned with schema:hasPart to denote that the AwarenessState is a constituent part of the Message.
 
 rcao:contains rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf schema:hasPart ;  # <--- Alignment with Established Ontology [Source 49]
+    rdfs:subPropertyOf schema:hasPart ;  # <--- Alignment with Established Ontology
     rdfs:domain rcao:V2XMessage ;
     rdfs:range rcao:AwarenessState ;
     rdfs:comment "Links a V2X message (Container) to the AwarenessState (Content) it carries." .
