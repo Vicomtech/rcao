@@ -1,0 +1,160 @@
+@prefix : <https://www.w3id.org/rcao-scenario3#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ago: <http://vcd.vicomtech.org/ontology/automotive#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rcao: <https://www.w3id.org/rcao#> .
+@base <https://www.w3id.org/rcao-scenario3> .
+
+<https://www.w3id.org/rcao-scenario3> rdf:type owl:Ontology ;
+    owl:imports <https://www.w3id.org/rcao> ;
+    rdfs:comment "Scenario 3: Fused Cooperative Awareness" .
+
+#################################################################
+#    1. ELEMENTS OF THE SCENE - ACTORS & INFRASTRUCTURE
+#################################################################
+
+### The Vehicle
+:EgoVehicle1 rdf:type rcao:ConnectedVehicle ;
+    ago:hasPart :ADS1 , :LIDAR1 ;
+    rdfs:label "An ego-vehicle, equipped with an ADS" .
+
+### The Agents (Local ADS & Remote RSU)
+:ADS1 rdf:type rcao:AutomatedDrivingSystem ;
+    ago:partOf :EgoVehicle1 ;
+    # INITIAL AGENCY: ADS is running the driving action
+    rcao:runsProcess :DrivingAutonomously1 ;
+    rdfs:label "ADS System Supervisor" .
+
+### The Intelligent Infrastructure
+:RSU1 rdf:type rcao:RoadSideUnit ;
+      ago:hasPart :Camera1 , :Fusion_Algo_RSU1 , :RCA_Algo_RSU1 ;
+      rdfs:label "Intelligent Intersection Unit" .
+
+### Initial Situation
+:Pedestrian1 rdf:type rcao:VulnerableRoadUser ;
+    rdfs:label "Pedestrian crossing the road" .
+
+:DrivingAutonomously1 rdf:type ago:Action ;
+    rdfs:label "Standard Autonomous Driving (Lane Keeping/Cruise)" .
+
+### Ego-Vehicle Algorithms
+:Fusion_Algo_ADS1 rdf:type rcao:Algorithm ;
+                  ago:partOf :ADS1 ;
+                  rdfs:label "Local ADS Low-Level Sensor Fusion Module" .
+
+:RCA_Algo_ADS1 rdf:type rcao:Algorithm ;
+               ago:partOf :ADS1 ;
+               rdfs:label "Local ADS Risk & Comprehension Module" .
+
+
+    
+#################################################################
+#    2. INPUTS & PERCEPTION PROCESSES
+#################################################################
+#### LOCAL PROCESS Perception EGO Vehicle ####
+:LIDAR1 rdf:type rcao:InformationSource ;
+        ago:partOf :EgoVehicle1 ;
+        rcao:hasSourceResilience :LIDAR1_Visibility_Map .
+
+:LIDAR1_Visibility_Map rdf:type rcao:ResilienceAttribute ;
+                       rcao:hasCompleteness "0.4"^^xsd:float ;
+                       rdfs:label "Lidar Occlusion Map (Low Visibility)" .
+
+:PerceptionProcess_ADS1 rdf:type rcao:PerceptionProcess ;
+                        prov:used :LIDAR1 .
+
+:ADS1 rcao:runsProcess :PerceptionProcess_ADS1 .
+
+:PA1_ADS1_of_P1 rdf:type rcao:PerceptualAwareness ;
+                rcao:hasSubject :ADS1 ;
+                rcao:hasObject :Pedestrian1 ;
+                rcao:hasSource :LIDAR1 ;
+                rcao:wasComputedBy :PerceptionProcess_ADS1 ;
+                rcao:hasConfidence "0.75"^^xsd:float ;
+                rcao:hasTimestamp "2024-10-25T14:30:00.05Z"^^xsd:dateTime .
+
+### V2X UPLINK BROADCAST ### 
+:BroadcastCPM_Uplink rdf:type rcao:BroadcastActivity .
+:ADS1 rcao:runsProcess :BroadcastCPM_Uplink .
+
+:CPM_Uplink rdf:type rcao:V2XMessage ;
+            rcao:contains :PA1_ADS1_of_P1 ;
+            prov:wasGeneratedBy :BroadcastCPM_Uplink .
+
+#### REMOTE RSU PERCEPTION #### [10]
+:Camera1 rdf:type rcao:InformationSource ;
+         ago:partOf :RSU1 ;
+         rcao:hasSourceResilience :Camera1_Score .
+
+:Camera1_Score rdf:type rcao:ResilienceAttribute ;
+               rcao:hasTrustScore "0.95"^^xsd:float ;
+               rdfs:label "RSU Camera Accuracy Metric" .
+
+:PerceptionProcess_RSU1 rdf:type rcao:PerceptionProcess ;
+                        rdfs:label "RSU Computer Vision" ;
+                        prov:used :Camera1 .
+
+:RSU1 rcao:runsProcess :PerceptionProcess_RSU1 .
+
+:PA1_RSU1_of_P1 rdf:type rcao:PerceptualAwareness ;
+                rcao:hasSubject :RSU1 ;
+                rcao:hasObject :Pedestrian1 ;
+                rcao:hasSource :Camera1 ;
+                rcao:wasComputedBy :PerceptionProcess_RSU1 ;
+                rcao:hasConfidence "0.88"^^xsd:float ;
+                rcao:hasTimestamp "2024-10-25T14:30:00.05Z"^^xsd:dateTime .
+
+#################################################################
+# 3. STEP 1: FUSION PERCEPTION (Intermediate L1 Awareness)
+#################################################################
+:FusionProcess_RSU1 rdf:type rcao:FusionProcess ;
+                    rcao:fusesState :PA1_ADS1_of_P1 , :PA1_RSU1_of_P1 .
+
+:Fusion_Algo_RSU1 rcao:runsProcess :FusionProcess_RSU1 .
+
+:PA_Fused_RSU_of_P1 rdf:type rcao:PerceptualAwareness ;
+                    rcao:hasSubject :RSU1 ;
+                    rcao:hasObject :Pedestrian1 ;
+                    rcao:hasSource :Fusion_Algo_RSU1 ;
+                    rcao:wasComputedBy :FusionProcess_RSU1 ;
+                    rcao:derivedFrom :PA1_RSU1_of_P1 , :PA1_ADS1_of_P1 ;
+                    rcao:hasConfidence "0.95"^^xsd:float .
+
+#################################################################
+# 4. STEP 2: COMPREHENSION (Final L2 Awareness)
+#################################################################
+:ComprehensionProcess_RSU1 rdf:type rcao:ComprehensionProcess ;
+                           rcao:fusesState :PA_Fused_RSU_of_P1 .
+
+:RCA_Algo_RSU1 rcao:runsProcess :ComprehensionProcess_RSU1 .
+
+:Risk_Collision_Pedestrian1 rdf:type rcao:Risk .
+
+:CA2_RSU1_of_Risk rdf:type rcao:ComprehensionAwareness ;
+                  rcao:hasSubject :RCA_Algo_RSU1 ;
+                  rcao:hasObject :Risk_Collision_Pedestrian1 ;
+                  rcao:wasComputedBy :ComprehensionProcess_RSU1 ;
+                  rcao:derivedFrom :PA_Fused_RSU_of_P1 ;
+                  rcao:hasFusionStrategy "agreement_consolidation"^^xsd:string ;
+                  rdfs:comment "RSU synthesized comprehension based on multi-agent perceptual agreement."@en .
+
+#################################################################
+# 5. DECISION (Harmonized Action)
+#################################################################
+# DOWNLINK: RSU Broadcasts the comprehension to the vehicle and management center
+:BroadcastCPM_Downlink rdf:type rcao:BroadcastActivity .
+:RSU1 rcao:runsProcess :BroadcastCPM_Downlink .
+
+:CPM_Downlink rdf:type rcao:V2XMessage ;
+              rcao:contains :CA2_RSU1_of_Risk ;
+              prov:wasGeneratedBy :BroadcastCPM_Downlink .
+
+# CLOSING THE LOOP: The ego-vehicle acts based on the RSU's comprehension
+:AdaptSpeed1 rdf:type ago:Action ;
+             rdfs:label "Pre-emptive Braking / Speed Adaptation" ;
+             rcao:justifiedBy :CA2_RSU1_of_Risk .
+
+:ADS1 rcao:runsProcess :AdaptSpeed1 .

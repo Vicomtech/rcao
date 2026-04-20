@@ -1,0 +1,79 @@
+@prefix : <https://www.w3id.org/rcao-scenario6#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ago: <http://vcd.vicomtech.org/ontology/automotive#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rcao: <https://www.w3id.org/rcao#> .
+@base <https://www.w3id.org/rcao-scenario6> .
+
+<https://www.w3id.org/rcao-scenario6> rdf:type owl:Ontology ;
+    owl:imports <https://www.w3id.org/rcao> ;
+    rdfs:comment "Scenario 6: Modeling Failures" .
+
+
+
+#################################################################
+### 1. ELEMENTS & THE FAULT (ISO 26262: Fault)
+#################################################################
+:EgoVehicle1 rdf:type rcao:ConnectedVehicle ;
+             ago:hasPart :ADS1 , :Camera1 .
+
+:ADS1 rdf:type rcao:AutomatedDrivingSystem ;
+      ago:hasPart :RCA_Algo .
+
+:Camera1 rdf:type rcao:InformationSource ;
+         rcao:hasSourceResilience :Camera_Degraded_State .
+
+# The Fault manifests as a degraded Resilience Attribute
+:Camera_Degraded_State rdf:type rcao:TrustScore ;
+                       rcao:hasTrustScore "0.20"^^xsd:float ;
+                       rdfs:comment "Soft Fault: Lens obstructed by mud." .
+
+#################################################################
+### 2. THE ERROR (ISO 26262: Error in Perception)
+#################################################################
+:PerceptionProcess_Cam1 rdf:type rcao:PerceptionProcess ;
+                        prov:used :Camera1 .
+
+:ADS1 rcao:runsProcess :PerceptionProcess_Cam1 .
+
+# The Error: The state exists, but its confidence is dangerously low
+:PA1_Cam_SoftFault rdf:type rcao:PerceptualAwareness ;
+                   rcao:hasSubject :ADS1 ;
+                   rcao:hasObject :Pedestrian1 ; # It hallucinates or barely sees an object
+                   rcao:hasSource :Camera1 ;
+                   rcao:wasComputedBy :PerceptionProcess_Cam1 ;
+                   rcao:hasConfidence "0.35"^^xsd:float .
+
+:Pedestrian1 rdf:type rcao:VulnerableRoadUser .
+
+
+#################################################################
+### 3. COMPREHENSION (Intercepting the Error)
+#################################################################
+:ComprehensionProcess_RCA1 rdf:type rcao:ComprehensionProcess ;
+                           prov:used :PA1_Cam_SoftFault .
+
+:RCA_Algo rcao:runsProcess :ComprehensionProcess_RCA1 .
+
+:Risk_SystemUnreliable rdf:type rcao:Risk ;
+                       rdfs:comment "Context: Primary sensor degradation exceeds safe ODD limits." .
+
+# The RCA module understands the system is compromised
+:CA1_RCA_SystemDegradation rdf:type rcao:ComprehensionAwareness ;
+                           rcao:hasSubject :RCA_Algo ;
+                           rcao:hasObject :Risk_SystemUnreliable ;
+                           rcao:derivedFrom :PA1_Cam_SoftFault ;
+                           rcao:wasComputedBy :ComprehensionProcess_RCA1 ;
+                           rdfs:comment "RCA detected Soft Fault in Camera1 due to confidence drop. Error trapped." .
+
+#################################################################
+### 4. PREVENTING FAILURE (ISO 26262: Safe State Transition)
+#################################################################
+:Action_MRM_Handover rdf:type rcao:MinimalRiskManeuver ; # Subclass of ago:Action
+                     rdfs:label "Activate Hand-over to Driver / MRM" ;
+                     rcao:justifiedBy :CA1_RCA_SystemDegradation .
+
+:ADS1 rcao:runsProcess :Action_MRM_Handover .
