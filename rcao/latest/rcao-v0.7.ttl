@@ -23,7 +23,7 @@
     # 2. NUEVO: Contribuidores (Puede usar literales de texto o IRIs ORCID si lo prefiere)
     dc:contributor "New collaborator ()",
                     "other ()";                                                  
-    dc:title "Resilience Collective Awareness Ontology" ;
+    dc:title "Resilient Collective Awareness Ontology" ;
     dc:created "2026-04-25T12:00:00"^^xsd:dateTime ;
     dc:issued "2026-04-25T12:00:00"^^xsd:dateTime ;
     dc:license "https://creativecommons.org/licenses/by/4.0/" ;
@@ -32,7 +32,7 @@
     # 3. CORRECCIÓN VANN: Añadimos www. y el # al final para el parser de Ontospy
     vann:preferredNamespaceUri "https://www.w3id.org/rcao#" ;
     
-    schema:citation "Cite this ontology as: Utrilla Guerrero, C., Aranjuelo Ansa, N., and Nieto Doncel, M., (2025). Resilience Collective Awareness Ontology 0.1.0. https://w3id.org/rcao/0.1.0" ;
+    schema:citation "Cite this ontology as: Utrilla Guerrero, C., Aranjuelo Ansa, N., and Nieto Doncel, M., (2026). Resilient Collective Awareness Ontology 0.1.0. https://w3id.org/rcao/0.1.0" ;
     rdfs:comment """The RCAO aims to provide a common knowledge model of the resilient collective awareness on automated driving domain."""@en ;
     owl:versionInfo "0.1.0" ;
     schema:logo "https://raw.githubusercontent.com/X.png" ;
