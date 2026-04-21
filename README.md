@@ -17,8 +17,8 @@ The ontology is available in a number of formats:
 ## Documentation
 We automatically generate documentation for RCAO using OntoSpy, Pylode and Widoco wizard:
 
-* [OntoSpy](https://rca-datamodel-a24b0f.gitlab.io/ontospy/)
-* [Widoco](https://rca-datamodel-a24b0f.gitlab.io)
+* [OntoSpy](https://vicomtech.github.io/rcao/docs/ontospy/html-multi-page/index-en.html)
+* [Widoco](https://vicomtech.github.io/rcao/rcao/latest/index-en.html)
 
 ## Contributing
 
