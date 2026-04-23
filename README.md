@@ -5,7 +5,7 @@ RCAO offers a minimal set of classes and relations to guide the representation o
 The ontoloy IRI is: [https://w3id.org/rcao/](https://w3id.org/rcao/)
 
 Here's the RCAO Postcard showing all the classes and relations:<br>
-<img src="rcao/sections/media/rcao-logo-min.png" alt="Unified Common Meaning of RCAO" width="800">
+<img src="versions/sections/media/rcao-logo-min.png" alt="Unified Common Meaning of RCAO" width="800">
 
 ## Availability
 The ontology is available in a number of formats:
