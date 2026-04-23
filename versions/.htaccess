@@ -28,33 +28,33 @@ RewriteRule ^docs/ontospy$ https://vicomtech.github.io/rcao/docs/ontospy/html-mu
 RewriteRule ^rcao-([0-9]+\.[0-9]+\.[0-9]+)\.ttl$ https://raw.githubusercontent.com/Vicomtech/rcao/refs/heads/main/versions/rcao-$1.ttl [R=303,L]
 
 # redirects for HTML documentation of classes and properties
-RewriteRule ^([A-Z]+(.*))$ https://vicomtech.github.io/rcao/versions/latest/class-rcao$1.html [R=303,L]
-RewriteRule ^([a-z]+(.*))$ https://vicomtech.github.io/rcao/versions/latest/prop-rcao$1.html [R=303,L]
+RewriteRule ^([A-Z]+(.*))$ https://vicomtech.github.io/rcao/versions/latest/rcao$1.html [R=303,L]
+RewriteRule ^([a-z]+(.*))$ https://vicomtech.github.io/rcao/versions/latest/rcao$1.html [R=303,L]
 
 # Redirects for Turtle files
 RewriteCond %{HTTP_ACCEPT} text/turtle [OR]
 RewriteCond %{HTTP_ACCEPT} text/ttl [OR]
 RewriteCond %{HTTP_ACCEPT} application/turtle [OR]
 RewriteCond %{HTTP_ACCEPT} application/x-turtle
-RewriteRule ^$ https://raw.githubusercontent.com/Vicomtech/rcao/refs/heads/main/rcao/latest/rcao.ttl [R=303,L]
-RewriteRule ^sulo\.ttl$ https://raw.githubusercontent.com/Vicomtech/rcao/refs/heads/main/rcao/latest/rcao.ttl [R=303,L]
+RewriteRule ^$ https://raw.githubusercontent.com/Vicomtech/rcao/refs/heads/main/versions/latest/rcao.ttl [R=303,L]
+RewriteRule ^sulo\.ttl$ https://raw.githubusercontent.com/Vicomtech/rcao/refs/heads/main/versions/latest/rcao.ttl [R=303,L]
 
 
 # Rewrite rule to serve other formats from the vocabulary URI if requested
 RewriteCond %{HTTP_ACCEPT} application/ld\+json
-RewriteRule ^$ https://raw.githubusercontent.com/Vicomtech/rcao/refs/heads/main/rcao/latest/rcao.jsonld [R=303,L]
+RewriteRule ^$ https://raw.githubusercontent.com/Vicomtech/rcao/refs/heads/main/versions/latest/rcao.jsonld [R=303,L]
 
 RewriteCond %{HTTP_ACCEPT} application/n-triples
-RewriteRule ^$ https://raw.githubusercontent.com/Vicomtech/rcao/refs/heads/main/rcao/latest/rcao.nt [R=303,L]
+RewriteRule ^$ https://raw.githubusercontent.com/Vicomtech/rcao/refs/heads/main/versions/latest/rcao.nt [R=303,L]
 
 # Rewrite rule to serve RDF/XML content from the vocabulary URI if requested
 RewriteCond %{HTTP_ACCEPT} \*/\* [OR]
 RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
-RewriteRule ^$ https://raw.githubusercontent.com/Vicomtech/rcao/refs/heads/main/rcao/latest/rcao.owl [R=303,L]
+RewriteRule ^$ https://raw.githubusercontent.com/Vicomtech/rcao/refs/heads/main/versions/latest/rcao.owl [R=303,L]
 
 
 # Default response
 # ---------------------------
 # Rewrite rule to serve the TTL content from the vocabulary URI by default
 RewriteCond %{HTTP_ACCEPT} .+
-RewriteRule ^$ https://raw.githubusercontent.com/Vicomtech/rcao/refs/heads/main/rcao/latest/rcao.ttl [R=303,L]
+RewriteRule ^$ https://raw.githubusercontent.com/Vicomtech/rcao/refs/heads/main/versions/latest/rcao.ttl [R=303,L]

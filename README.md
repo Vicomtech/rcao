@@ -9,10 +9,10 @@ Here's the RCAO Postcard showing all the classes and relations:<br>
 
 ## Availability
 The ontology is available in a number of formats:
-* [Turtle](./rcao/latest/ontology.ttl)
-* [RDF/XML](./rcao/latest/ontology.owl)
-* [JSON-LD](./rcao/latest/ontology.jsonld)
-* [NTriples](./rcao/latest/ontology.nt)
+* [Turtle](./versions/latest/rcao.ttl)
+* [RDF/XML](./versions/latest/rcao.owl)
+* [JSON-LD](./versions/latest/rcao.jsonld)
+* [NTriples](./versions/latest/rcao.nt)
 
 
 You can retrieve any of these through content type negotiation
@@ -37,6 +37,10 @@ We automatically generate documentation for RCAO using OntoSpy, Pylode and Widoc
 ## Cite
 
 
-## Project status
-Work In Progress (WIP)
+## Acknowledgment
+
+This work is fully supported by the EU AIGREGGATE ([https://cordis.europa.eu/project/id/101202457](https://cordis.europa.eu/project/id/101202457)] project funded from the European Union´s Horizon 2027 research and innovation program under the grant agreement no ```10.3030/101202457```.
+<br>
+<img src="versions/sections/media/rcao-logo.png" alt="Unified Common Meaning of RCAO" width="800">
+
 
