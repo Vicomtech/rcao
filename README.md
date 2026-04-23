@@ -30,7 +30,7 @@ In addition, individual versions of RCAO are available through the ontology IRI 
 We automatically generate documentation for RCAO using OntoSpy, Pylode and Widoco wizard:
 
 * [OntoSpy](https://vicomtech.github.io/rcao/docs/ontospy/html-multi-page/index.html)
-* [Widoco](https://vicomtech.github.io/rcao/rcao/latest/index-en.html)
+* [Widoco](https://vicomtech.github.io/rcao/versions/latest/index-en.html)
 
 ## Contributing
 
