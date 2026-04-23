@@ -23,7 +23,7 @@ curl -L -H "Accept: application/rdf+xml" https://w3id.org/rcao
 curl -L -H "Accept: application/n-triples" https://w3id.org/rcao
 ```
 
-In addition, individual versions of RCAO are available through the ontology IRI pattern ```https://w3id.org/rcao/sulo-X.X.X.ttl```  All versions of the ontology are available from [github](rcao/)
+In addition, individual versions of RCAO are available through the ontology IRI pattern ```https://w3id.org/rcao/rcao-X.X.X.ttl```  All versions of the ontology are available from [github](rcao/)
 
 
 ## Documentation
