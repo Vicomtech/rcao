@@ -1,0 +1,160 @@
+<mxfile host="65bd71144e">
+    <diagram id="Scenario6_ABox" name="RCAO Scenario 6 A-Box Instantiation">
+        <mxGraphModel dx="1788" dy="811" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="n_Ego" value="&lt;u&gt;:EgoVehicle1&lt;/u&gt;&lt;br&gt;&lt;b&gt;a rcao:ConnectedVehicle&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="50" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_Cam" value="&lt;u&gt;:Camera1&lt;/u&gt;&lt;br&gt;&lt;b&gt;a rcao:InformationSource&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="50" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_CamDeg" value="&lt;u&gt;:Camera_Degraded_State&lt;/u&gt;&lt;br&gt;&lt;b&gt;a rcao:TrustScore&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#d6b656;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="50" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_ADS" value="&lt;u&gt;:ADS1&lt;/u&gt;&lt;br&gt;&lt;b&gt;a rcao:AutomatedDrivingSystem&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="200" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_Perc" value="&lt;u&gt;:PerceptionProcess_Cam1&lt;/u&gt;&lt;br&gt;&lt;b&gt;a rcao:PerceptionProcess&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="200" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_PA1" value="&lt;u&gt;:PA1_Cam_SoftFault&lt;/u&gt;&lt;br&gt;&lt;b&gt;a rcao:PerceptualAwareness&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#b85450;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="650" y="200" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_Ped" value="&lt;u&gt;:Pedestrian1&lt;/u&gt;&lt;br&gt;&lt;b&gt;a rcao:VulnerableRoadUser&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="950" y="220" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_Algo" value="&lt;u&gt;:RCA_Algo&lt;/u&gt;&lt;br&gt;&lt;b&gt;a rcao:Algorithm&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="350" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_Comp" value="&lt;u&gt;:ComprehensionProcess_RCA1&lt;/u&gt;&lt;br&gt;&lt;b&gt;a rcao:ComprehensionProcess&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="350" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_CA1" value="&lt;u&gt;:CA1_RCA_SystemDegradation&lt;/u&gt;&lt;br&gt;&lt;b&gt;a rcao:ComprehensionAwareness&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#82b366;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="340" width="190" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_Risk" value="&lt;u&gt;:Risk_SystemUnreliable&lt;/u&gt;&lt;br&gt;&lt;b&gt;a rcao:Risk&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#b85450;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="970" y="340" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_Action" value="&lt;u&gt;:Action_MRM_Handover&lt;/u&gt;&lt;br&gt;&lt;b&gt;a rcao:MinimalRiskManeuver&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="500" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_L020" value="&quot;0.20&quot;^^xsd:float" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;" parent="1" vertex="1">
+                    <mxGeometry x="1040" y="55" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_L035" value="&quot;0.35&quot;^^xsd:float" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;" parent="1" vertex="1">
+                    <mxGeometry x="1030" y="120" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_LRiskComment" value="&quot;Context: Primary sensor degradation exceeds safe ODD limits.&quot;" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;" parent="1" vertex="1">
+                    <mxGeometry x="930" y="460" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_LActionLabel" value="&quot;Activate Hand-over to Driver / MRM&quot;" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;" parent="1" vertex="1">
+                    <mxGeometry x="310" y="610" width="260" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" value="ago:hasPart" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_Ego" target="n_Cam" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2" value="ago:hasPart" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_Ego" target="n_ADS" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3" value="rcao:hasSourceResilience" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_Cam" target="n_CamDeg" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e4" value="rcao:hasTrustScore" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_CamDeg" target="n_L020" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e5" value="rcao:runsProcess" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_ADS" target="n_Perc" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e6" value="ago:hasPart" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_ADS" target="n_Algo" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e7" value="prov:used" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_Perc" target="n_Cam" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e8" value="rcao:wasComputedBy" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_PA1" target="n_Perc" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e9" value="rcao:hasSource" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_PA1" target="n_Cam" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="740" y="150"/>
+                            <mxPoint x="440" y="150"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e10" value="rcao:hasSubject" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_PA1" target="n_ADS" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="740" y="130"/>
+                            <mxPoint x="140" y="130"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e11" value="rcao:hasObject" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_PA1" target="n_Ped" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="880" y="245"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e12" value="rcao:hasConfidence" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_PA1" target="n_L035" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="880" y="170"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e13" value="rcao:runsProcess" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_Algo" target="n_Comp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e14" value="prov:used" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;entryX=0.25;entryY=1;" parent="1" source="n_Comp" target="n_PA1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="440" y="300"/>
+                            <mxPoint x="695" y="300"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e15" value="rcao:wasComputedBy" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_CA1" target="n_Comp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e16" value="rcao:hasSubject" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_CA1" target="n_Algo" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="745" y="440"/>
+                            <mxPoint x="140" y="440"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e17" value="rcao:derivedFrom" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_CA1" target="n_PA1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e18" value="rcao:hasObject" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_CA1" target="n_Risk" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e19" value="rcao:runsProcess" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;exitX=0.25;exitY=1;entryX=0;entryY=0.5;" parent="1" source="n_ADS" target="n_Action" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="95" y="525"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e20" value="rcao:justifiedBy" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.25;entryY=1;" parent="1" source="n_Action" target="n_CA1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="698" y="525"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e21" value="rdfs:comment" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_Risk" target="n_LRiskComment" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e22" value="rdfs:label" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;rounded=1;labelBackgroundColor=#ffffff;" parent="1" source="n_Action" target="n_LActionLabel" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
